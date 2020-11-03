@@ -1,9 +1,37 @@
-var express = require('express');
+var express = require("express");
+const {
+  Create_a_user,
+  Login,
+  Upload_user_photo,
+  Logout,
+  Delete_user_by_admin,
+  Update_user_by_admin,
+  Get_user_by_id_for_admin,
+  Get_infor_me,
+  Get_all_users_by_admin,
+} = require("../controllers/userController/userController");
+const upload = require("../middlewares/multer");
+const auth = require("../middlewares/auth");
 var router = express.Router();
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+//Register
+router.post("/", Create_a_user); 
+//upload photo follow id user
+router.post("/photo/:id", upload("users").single("file"), Upload_user_photo);
+//login
+router.post("/login", Login);
+//logout
+router.post("/logout", auth.simple, Logout);
+//get infor me
+router.post("/me", auth.simple, Get_infor_me);
+//Get all user by admin 
+router.get("/",auth.enhance,Get_all_users_by_admin)
+
+// delete user by admin
+router.delete("/:id", auth.enhance, Delete_user_by_admin);
+//update user by admin
+router.patch("/:id", auth.enhance, Update_user_by_admin);
+//get user by admin follow id
+router.get("/:id", auth.enhance, Get_user_by_id_for_admin);
 
 module.exports = router;
