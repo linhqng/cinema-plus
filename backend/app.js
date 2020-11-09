@@ -3,10 +3,11 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
-
 var usersRouter = require("./routes/users");
 var movieRouter = require("./routes/movie");
 var cinemaRouter = require("./routes/cinemas");
+var showtimeRouter = require("./routes/showtime");
+var promotionRouter = require("./routes/promtions");
 var cors = require("cors");
 var app = express();
 var mongoose = require("mongoose");
@@ -36,9 +37,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 
-
 app.use("/users", usersRouter);
 app.use("/movies", movieRouter);
 app.use("/cinemas", cinemaRouter);
+app.use("/showtimes", showtimeRouter);
+app.use("/promotions", promotionRouter);
 
 module.exports = app;
