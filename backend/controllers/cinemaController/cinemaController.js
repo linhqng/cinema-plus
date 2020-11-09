@@ -85,3 +85,16 @@ exports.Delete_cinema_by_id = async (req, res, next) => {
     return res.sendStatus(400);
   }
 };
+exports.Search_full_text = async (req, res, next) => {
+  const q = req.params.q;
+
+  try {
+    const result = await Cinema.find({ $text: { $search: q } }).exec();
+    return res.send(result);
+  } catch (error) {
+    console.log(error);
+    return res.status(500).send({
+      message: "Error 500",
+    });
+  }
+};

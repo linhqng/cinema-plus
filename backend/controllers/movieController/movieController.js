@@ -1,18 +1,18 @@
 const Movie = require("../../models/movie");
+const userModeling = require("../../utils/userModeling");
 
 exports.Create_movie = async (req, res, next) => {
-
   const movie = new Movie({
     ...req.body,
   });
   console.log(movie);
-    try {
-      await movie.save();
-      res.status(201).send(movie);
-    } catch (e) {
-      console.log(e);
-      res.status(400).send(e);
-    }
+  try {
+    await movie.save();
+    res.status(201).send(movie);
+  } catch (e) {
+    console.log(e);
+    res.status(400).send(e);
+  }
 };
 
 exports.Upload_movie_photo = async (req, res, next) => {
@@ -45,6 +45,16 @@ exports.Get_all_movie = async (req, res, next) => {
   }
 };
 
+exports.Get_suggest_movies = async (req, res) => {
+  const { username } = req.params;
+  try {
+    const cinemasUserModeled = await userModeling.moviesUserModeling(username);
+    res.send(cinemasUserModeled);
+  } catch (e) {
+    res.status(400).send(e);
+  }
+};
+
 exports.Get_movie_by_id = async (req, res, rext) => {
   const _id = req.params.id;
 
@@ -60,10 +70,11 @@ exports.Get_movie_by_id = async (req, res, rext) => {
 exports.Update_movie_by_id = async (req, res, next) => {
   const _id = req.params.id;
   const updates = Object.keys(req.body);
+  console.log(req.body);
   const allowedUpdates = [
     "title",
     "image",
-    "language",
+    "language_movie",
     "genre",
     "director",
     "cast",
@@ -97,5 +108,18 @@ exports.Delete_movie_by_id = async (req, res, next) => {
   } catch (e) {
     console.log(e);
     return res.sendStatus(400);
+  }
+};
+exports.Full_text_search_movie = async (req, res, next) => {
+  const q = req.params.q;
+  console.log(q);
+  try {
+    const result = await Movie.find({ $text: { $search: q } }).exec();
+    return res.send(result);
+  } catch (error) {
+    console.log(error);
+    return res.status(500).send({
+      message: "Error 500",
+    });
   }
 };

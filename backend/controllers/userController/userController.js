@@ -3,7 +3,7 @@ const User = require("../../models/user");
 exports.Create_a_user = async (req, res) => {
   try {
     const { role } = req.body;
-    if (role) throw new Error("You cannot set role property.");
+    if (role) throw new Error("you cannot set role property.");
     const user = new User(req.body);
     await user.save();
     const token = await user.generateAuthToken();
@@ -49,6 +49,35 @@ exports.Login = async (req, res, next) => {
     });
   }
 };
+exports.Login_with_fb = async (req, res) => {
+  try {
+    const { email, userID, name, phone } = req.body;
+    const nameArray = name.split(" ");
+    const user = await User.findOne({ username: nameArray.join("") + userID });
+    if (!user) {
+      const newUser = new User({
+        name,
+        username: nameArray.join("") + userID,
+        email,
+        facebook: userID,
+        phone: "Unknown phone",
+      });
+      try {
+        await newUser.save();
+        const token = await newUser.generateAuthToken();
+        res.status(201).send({ user: newUser, token });
+      } catch (e) {
+        res.status(400).send(e);
+      }
+    } else {
+      const token = await user.generateAuthToken();
+      res.send({ user, token });
+    }
+  } catch (e) {
+    res.status(400).send(e);
+  }
+};
+
 exports.Logout = async (req, res, next) => {
   try {
     req.user.tokens = req.user.tokens.filter((token) => {
@@ -77,7 +106,7 @@ exports.Get_all_users_by_admin = async (req, res, next) => {
       error: "Only the god can see all the users!",
     });
   try {
-    const users = await User.find({});
+    const users = await User.find({ role: { $ne: "superadmin" } });
     res.send(users);
   } catch (e) {
     res.status(400).send(e);
