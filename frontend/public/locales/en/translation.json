@@ -133,7 +133,9 @@
       "requiredTitle": "Title is required !",
       "requiredDiscount": "Discount is required !",
       "requiredDesc": "Desc is required !",
-      "delete": "Delete promotion"
+      "delete": "Delete promotion",
+      "requiredCode": "Promotion code is required !",
+      "code":"Promotion code"
     }
   }
 }
