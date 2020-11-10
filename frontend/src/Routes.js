@@ -12,6 +12,11 @@ import AuthRoute from "./routers/AuthRoute";
 const Login = lazy(() => import("./page/Public/Login/Login"));
 const Register = lazy(() => import("./page/Public/Register/Register"));
 const HomePage = lazy(() => import("./page/Public/HomePage/HomePage"));
+const MovieCategoryPage = lazy(() =>
+  import("./page/Public/MovieCategoryPage/MovieCategoryPage")
+);
+
+const MoviePage = lazy(() => import("./page/Public/MoviePage/MoviePage"));
 
 const DashboardPage = lazy(() => import("./page/Admin/Dashboard/Dashboard"));
 const MovieList = lazy(() => import("./page/Admin/MovieList/MovieList"));
@@ -50,6 +55,19 @@ const Routes = () => {
             path="/"
             layout={PublicLayout}
             component={HomePage}
+          />
+          <WithLayoutRoute
+            exact
+            path="/movie/category/:category"
+            layout={PublicLayout}
+            component={MovieCategoryPage}
+          />
+          <WithLayoutRoute
+            exact
+            path="/movie/:id"
+            layout={PublicLayout}
+            layoutProps={{ withFooter: false }}
+            component={MoviePage}
           />
           <ProtectedRoute
             exact

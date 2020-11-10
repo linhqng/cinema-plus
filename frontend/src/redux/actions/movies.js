@@ -6,6 +6,23 @@ export const onSelectMovie = (movie) => ({
   type: SELECT_MOVIE,
   payload: movie,
 });
+
+export const getMovie = (id) => async (dispatch) => {
+  try {
+    const url = baseUrl + "/movies/" + id;
+    const response = await fetch(url, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    });
+    const movie = await response.json();
+    if (response.ok) {
+      dispatch({ type: SELECT_MOVIE, payload: movie });
+    }
+  } catch (error) {
+    dispatch(setAlert(error.message, "error", 5000));
+  }
+};
+
 export const uploadMovieImage = (id, image) => async (dispatch) => {
   try {
     const data = new FormData();
