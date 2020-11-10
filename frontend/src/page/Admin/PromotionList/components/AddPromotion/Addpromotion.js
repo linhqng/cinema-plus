@@ -49,8 +49,9 @@ function Addpromotion(props) {
             ? selectedPromotion.startDate
             : new Date(),
           endDate: selectedPromotion ? selectedPromotion.endDate : new Date(),
-          cinemaId: selectedPromotion ? selectedPromotion.cinemaId : "",
+          cinemaId: selectedPromotion ? selectedPromotion.cinemaId._id : "",
           image: null,
+          code: selectedPromotion ? selectedPromotion.code : "",
         }}
         validationSchema={Yup.object().shape({
           title: Yup.string().required(`${t("admin.promotion.requiredTitle")}`),
@@ -58,6 +59,7 @@ function Addpromotion(props) {
             `${t("admin.promotion.requiredDiscount")}`
           ),
           description: Yup.string().required(t("admin.promotion.requiredDesc")),
+          code: Yup.string().required(t("admin.promotion.requiredCode")),
         })}
         onSubmit={(values) => {
           const { image, ...rest } = values;
@@ -118,7 +120,6 @@ function Addpromotion(props) {
                   fullWidth
                   multiline
                   rows={4}
-                  type="number"
                   error={
                     props.errors.description && props.touched.description
                       ? true
@@ -141,6 +142,24 @@ function Addpromotion(props) {
                 />
               </div>
               <div className={classes.field}>
+                <TextField
+                  fullWidth
+                  error={props.errors.code && props.touched.code ? true : false}
+                  helperText={
+                    props.errors.code && props.touched.code
+                      ? props.errors.code
+                      : ""
+                  }
+                  className={classes.textField}
+                  label={t("admin.promotion.code")}
+                  name="code"
+                  margin="dense"
+                  required
+                  variant="outlined"
+                  value={props.values.code}
+                  onChange={props.handleChange}
+                  onBlur={props.handleBlur}
+                />
                 <TextField
                   fullWidth
                   select
@@ -171,7 +190,6 @@ function Addpromotion(props) {
                     name="startDate"
                     id="start-date"
                     label={t("admin.showtimes.startDate")}
-                    minDate={new Date()}
                     value={props.values.startDate}
                     onChange={(date) =>
                       props.setFieldValue("startDate", date._d)
@@ -188,7 +206,6 @@ function Addpromotion(props) {
                     id="end-date"
                     label={t("admin.showtimes.endDate")}
                     name="endDate"
-                    minDate={new Date(props.values.startDate)}
                     value={props.values.endDate}
                     onChange={(date) => props.setFieldValue("endDate", date._d)}
                     KeyboardButtonProps={{

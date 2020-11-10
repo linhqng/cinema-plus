@@ -19,6 +19,7 @@ function PromotionList(props) {
   const dispatch = useDispatch();
   const [search, setSearch] = useState("");
   useEffect(() => {
+    dispatch(getCinemas());
     dispatch(getPromotions());
   }, []);
   useEffect(() => {
@@ -28,7 +29,6 @@ function PromotionList(props) {
       dispatch(Search_full_promotion(search));
     }
   }, [search]);
-  
   const promotions = useSelector((state) => state.promotionState.promotions);
   const selectedPromotion = useSelector(
     (state) => state.promotionState.selectedPromotion

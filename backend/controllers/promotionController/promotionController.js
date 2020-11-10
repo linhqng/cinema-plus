@@ -13,7 +13,7 @@ exports.Create_promotion = async (req, res, next) => {
 };
 exports.Get_all_promotion = async (req, res, next) => {
   try {
-    const result = await Promotion.find({}).exec();
+    const result = await Promotion.find({}).populate("cinemaId").exec();
     return res.send(result);
   } catch (error) {
     return res.status(500).json("Error 500");
@@ -48,7 +48,7 @@ exports.Upload_promotion_photo = async (req, res, next) => {
     return res.sendStatus(400).send(e);
   }
 };
-exports.Search_full_text_promotion = async(req,res,next)=>{
+exports.Search_full_text_promotion = async (req, res, next) => {
   const q = req.params.q;
   try {
     const result = await Promotion.find({ $text: { $search: q } }).exec();
@@ -59,4 +59,4 @@ exports.Search_full_text_promotion = async(req,res,next)=>{
       message: "Error 500",
     });
   }
-}
+};
