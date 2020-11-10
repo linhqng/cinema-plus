@@ -133,8 +133,9 @@
       "requiredTitle": "Nhập tiêu đề!",
       "requiredDiscount": "Nhập giảm giá!",
       "requiredDesc":"Nhập mô tả !",
-      "delete":"Xóa khuyến mãi"
-
+      "delete":"Xóa khuyến mãi",
+      "requiredCode":"Nhập mã khuyến mãi",
+      "code":"Mã giảm giá"
     }
   }
 }

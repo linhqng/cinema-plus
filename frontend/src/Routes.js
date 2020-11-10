@@ -16,6 +16,12 @@ const MovieCategoryPage = lazy(() =>
   import("./page/Public/MovieCategoryPage/MovieCategoryPage")
 );
 
+const CinemasPage = lazy(() => import("./page/Public/CinemasPage/CinemasPage"));
+const Contact = lazy(() => import("./page/Public/ContactPage/ContactPage"));
+const PromotionsPage = lazy(() =>
+  import("./page/Public/PromotionsPage/PromotionsPage")
+);
+
 const MoviePage = lazy(() => import("./page/Public/MoviePage/MoviePage"));
 
 const DashboardPage = lazy(() => import("./page/Admin/Dashboard/Dashboard"));
@@ -43,6 +49,24 @@ const Routes = () => {
             path="/admin/dashboard"
             layout={AdminLayout}
             component={DashboardPage}
+          />
+          <WithLayoutRoute
+            exact
+            path="/cinemas"
+            layout={PublicLayout}
+            component={CinemasPage}
+          />
+          <WithLayoutRoute
+            exact
+            path="/contact"
+            layout={PublicLayout}
+            component={Contact}
+          />
+          <WithLayoutRoute
+            exact
+            path="/promotions"
+            layout={PublicLayout}
+            component={PromotionsPage}
           />
           <ProtectedRoute
             exact

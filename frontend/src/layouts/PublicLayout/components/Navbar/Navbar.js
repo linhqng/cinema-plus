@@ -3,7 +3,14 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { logout } from "../../../../redux/actions/auth";
 import classnames from "classnames";
-import { withStyles, Typography, List, ListItem } from "@material-ui/core";
+import {
+  withStyles,
+  Typography,
+  List,
+  ListItem,
+  Button,
+} from "@material-ui/core";
+import { useTranslation } from "react-i18next";
 
 // Component styles
 import styles from "./styles";
@@ -12,7 +19,10 @@ import UserPopover from "./components/UserPopover/UserPopover";
 const Navbar = ({ classes, isAuth, user, logout }) => {
   const [showMenu, setShowMenu] = useState(false);
   const [scrollPos, setScrollPos] = useState(window.pageYOffset);
-
+  const { t, i18n } = useTranslation();
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -49,9 +59,17 @@ const Navbar = ({ classes, isAuth, user, logout }) => {
           <Link className={classes.navLink} to="/cinemas">
             Cinemas
           </Link>
+          <Link className={classes.navLink} to="/promotions">
+            Promotions
+          </Link>
+          <Link className={classes.navLink} to="/contact">
+            Contact
+          </Link>
         </div>
 
         <div className={classes.navAccount}>
+          <Button onClick={() => changeLanguage("vi")}>VIE</Button>
+          <Button onClick={() => changeLanguage("en")}>ENG</Button>
           <UserPopover logout={logout}>
             <List component="nav">
               {user && (
@@ -89,7 +107,7 @@ const Navbar = ({ classes, isAuth, user, logout }) => {
         <div className={classes.navMobile}>
           <div
             className={classes.navIcon}
-            onClick={() => setShowMenu(!this.state.showMenu)}
+            onClick={() => setShowMenu(!showMenu)}
           >
             <div
               className={classnames(
@@ -143,6 +161,16 @@ const Navbar = ({ classes, isAuth, user, logout }) => {
             <li className={classes.innerNavListItem}>
               <Link className={classes.innerNavLink} to="/cinemas">
                 Cinemas
+              </Link>
+            </li>
+            <li className={classes.innerNavListItem}>
+              <Link className={classes.innerNavLink} to="/promotions">
+                Promotions
+              </Link>
+            </li>
+            <li className={classes.innerNavListItem}>
+              <Link className={classes.innerNavLink} to="/contact">
+                Contact
               </Link>
             </li>
           </ul>

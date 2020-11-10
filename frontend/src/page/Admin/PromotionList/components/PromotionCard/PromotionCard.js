@@ -39,7 +39,6 @@ const useStyles = makeStyles((theme) => ({
     textOverflow: "ellipsis",
     color: theme.palette.text.secondary,
     marginTop: theme.spacing(1),
-  
   },
   stats: {
     display: "flex",
@@ -81,20 +80,20 @@ function PromotionCard(props) {
           {promotion.description}
         </Typography>
         <Typography className={classes.updateText} variant="body2">
-        {t("admin.promotion.discount")} : {promotion.discount}
-      </Typography>
-
-      <Typography className={classes.updateText} variant="body2">
-        {t("admin.promotion.startDate")} :{" "}
-        {moment(promotion.startDate).format("DD-MM-YYYY")}
-      </Typography>
-      <Typography className={classes.updateText} variant="body2">
-        {t("admin.promotion.endDate")} :{" "}
-        {moment(promotion.startEnd).format("DD-MM-YYYY")}
-      </Typography>
+          {t("admin.promotion.discount")} : {promotion.discount}%
+        </Typography>
+        <Typography className={classes.updateText} variant="body2">
+          {t("admin.promotion.code")} : {promotion.code}
+        </Typography>
+        <Typography className={classes.updateText} variant="body2">
+          {t("admin.promotion.startDate")} :{" "}
+          {moment(promotion.startDate).format("DD-MM-YYYY")}
+        </Typography>
+        <Typography className={classes.updateText} variant="body2">
+          {t("admin.promotion.endDate")} :{" "}
+          {moment(promotion.endDate).format("DD-MM-YYYY")}
+        </Typography>
       </div>
-
-
     </Paper>
   );
 }

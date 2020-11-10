@@ -15,9 +15,6 @@ import { useDispatch, connect } from "react-redux";
 
 const Register = ({ classes, history, setSubmitting, isAuthenticated }) => {
   const { t, i18n } = useTranslation();
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
-  };
   const dispatch = useDispatch();
   useEffect(() => {
     if (isAuthenticated) {
@@ -27,8 +24,6 @@ const Register = ({ classes, history, setSubmitting, isAuthenticated }) => {
 
   return (
     <div className={classes.root}>
-      <button onClick={() => changeLanguage("vi")}>vi</button>
-      <button onClick={() => changeLanguage("en")}>en</button>
       <Grid className={classes.grid} container>
         <Grid className={classes.bgWrapper} item lg={5}>
           <div className={classes.bg} />

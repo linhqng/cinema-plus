@@ -7,7 +7,6 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case GET_ALL_PROMOTION: {
-      console.log(action.payload);
       return {
         ...state,
         promotions: action.payload,

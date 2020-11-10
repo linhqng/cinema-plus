@@ -24,7 +24,11 @@ const promotionSchema = new Schema({
     type: Date,
     required: true,
   },
-
+  code: {
+    type: String,
+    unique: true,
+    trim: true,
+  },
   cinemaId: {
     type: Schema.Types.ObjectId,
     ref: "cinemas",
