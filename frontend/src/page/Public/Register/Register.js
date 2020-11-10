@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./styles";
 import { withStyles } from "@material-ui/core";
 import { Link } from "react-router-dom";
@@ -11,19 +11,19 @@ import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import { registerUser } from "../../../redux/actions/auth";
 import { useTranslation } from "react-i18next";
-import { useDispatch } from "react-redux";
+import { useDispatch, connect } from "react-redux";
 
-const Register = ({ classes, history, setSubmitting }) => {
+const Register = ({ classes, history, setSubmitting, isAuthenticated }) => {
   const { t, i18n } = useTranslation();
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
-  };
   const dispatch = useDispatch();
+  useEffect(() => {
+    if (isAuthenticated) {
+      history.push("/");
+    }
+  }, [isAuthenticated]);
 
   return (
     <div className={classes.root}>
-      <button onClick={() => changeLanguage("vi")}>vi</button>
-      <button onClick={() => changeLanguage("en")}>en</button>
       <Grid className={classes.grid} container>
         <Grid className={classes.bgWrapper} item lg={5}>
           <div className={classes.bg} />
@@ -172,5 +172,8 @@ const Register = ({ classes, history, setSubmitting }) => {
     </div>
   );
 };
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.authState.isAuthenticated,
+});
 
-export default withStyles(styles)(Register);
+export default withStyles(styles)(connect(mapStateToProps)(Register));

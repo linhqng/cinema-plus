@@ -32,5 +32,131 @@
   },
   "btn": {
     "upload": "Tải lên"
+  },
+  "admin": {
+    "sidebar": {
+      "dashboard": "Bảng điều khiển",
+      "movies": "Quản lý phim",
+      "cinemas": "Quản lý rạp chiếu",
+      "showtimes": "Quản lý lịch chiếu",
+      "users": "Quản lý người dùng",
+      "account": "Quản lý tài khoản",
+      "reservations": "Quản lý vé ",
+      "promotions": "Quản lý khuyến mãi",
+      "contacts": "Quản lý liên hệ"
+    },
+    "movies": {
+      "title": "Tên phim",
+      "genre": "Thể loại phim",
+      "language": "Ngôn ngữ phim",
+      "description": "Mô tả phim",
+      "director": "Đạo diễn phim",
+      "cast": "Diễn viên phim",
+      "duration": "Thời lượng phim",
+      "releaseDate": "Ngày phát hành",
+      "endDate": "Ngày kết thúc",
+      "add": "Thêm phim",
+      "delete": "Xóa phim",
+      "update": "Cập nhật phim",
+      "minutes": "Phút",
+      "search": "Tìm kiếm phim",
+      "requiredTitle": "Nhhập tên phim !",
+      "requiredGenre": "Nhập thể loại phim !",
+      "requiredLanguage": "Nhập ngôn ngữ",
+      "requiredDirector": "Nhập tên đạo diễn",
+      "requiredCast": "Nhập tên diễn !",
+      "requiredDuration": "Nhập thời lượng phim !",
+      "requiredDescription": "Nhập mô tảt phim !"
+    },
+    "cinemas": {
+      "add": "Thêm rạp chiếu",
+      "update": "Cập nhật rạp chiếu",
+      "delete": "Xóa rạp chiếu",
+      "name": "Tên rạp chiếu",
+      "city": "Địa chỉ (thành phố)",
+      "ticketPrice": "Giá vé",
+      "seatsAvailable": "Số lượng chỗ ngồi",
+      "addRow": "Thêm chỗ ngồi mỗi hàng",
+      "seatsOfRow": "Số lợng chỗ ngồi của hàng ",
+      "permovie": "Mỗi phim",
+      "seats": "Chỗ",
+      "remove": "Xóa",
+      "search": "Tìm kiếm rạp",
+      "requiredName": "Nhập tên!",
+      "requiredCity": "Nhập địa chỉ !",
+      "requiredTicketPrice": "Nhập giá vé !",
+      "requireSeatsAvailable": "Nhập số chỗ ngồi !"
+    },
+    "showtimes": {
+      "tableName": "Danh sách lịch chiếu",
+      "add": "Thêm lịch chiếu",
+      "update": "Cập nhật lịch chiếu",
+      "delete": "Xóa lịch chiếu",
+      "requiredTime": "Chọn thời gian chiếu !",
+      "requiredMovie": "Chọn phim !",
+      "requiredCinema": "Chọn rạp chiếu !",
+      "time": "Thời gian chiếu",
+      "movie": "Phim",
+      "cinema": "Rạp chiếu",
+      "startDate": "Ngày bắt đầu",
+      "endDate": "Ngày kết thúc"
+    },
+    "users": {
+      "tableName": "Danh sách người dùng",
+      "name": "Tên người dùng",
+      "phone": "Số điện thoại người dùng",
+      "email": "Địa chỉ email",
+      "username": "Tên đăng nhập",
+      "detail": "Chi tiết người dùng",
+      "update": "Cập nhật người dùng"
+    },
+    "dashboard": {
+      "totalUsers": "Số lượng người dùng",
+      "totalMovies": "Số lượng phim",
+      "totalCinemas": "Số lượng rạp chiếu",
+      "sinceLastMonth": "Kể từ tháng trước"
+    },
+    "account": {
+      "cardName": "Thông tin tài khoản",
+      "joinAt": "Thời gian tạo",
+      "update": "Cập nhật tài khoản",
+      "save": "Lưu"
+    },
+    "promotion": {
+      "search": "Tìm kiếm khuyến mãi",
+      "add": "Thêm khuyến mãi",
+      "title":"Tiêu đề khuyến mãi",
+      "discount":"Phần trăm giảm giá",
+      "description":"Mô tả",
+      "startDate":"Ngày bắt đầu",
+      "endDate":"Ngày kết thúc",
+      "requiredTitle": "Nhập tiêu đề!",
+      "requiredDiscount": "Nhập giảm giá!",
+      "requiredDesc":"Nhập mô tả !",
+      "delete":"Xóa khuyến mãi",
+      "requiredCode":"Nhập mã khuyến mãi",
+      "code":"Mã giảm giá"
+    }
+  },
+  "public": {
+    "navbar": {
+      "home" : "Trang Chủ",
+      "showing": "Đang Công Chiếu",
+      "coming": "Sắp Ra Mắt",
+      "cinemas": "Rạp",
+      "contact": "Liên hệ",
+      "dashboard": "Trang Thông Tin",
+      "logout": "Đăng Xuất",
+      "login": "Đăng Nhập"
+    },
+    "home":{
+      "learnmore": "Xem Thêm",
+      "buyticket": "Đặt Vé",
+      "suggest": "Đề xuất cho bạn",
+      "by": "Sản Xuất Bởi",
+      "min": "phút",
+      "exploreall": "Xem Tất Cả",
+      "footer": "Được chế tạo bằng tình yêu"
+    }
   }
 }

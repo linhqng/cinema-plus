@@ -1,36 +1,162 @@
 {
-    "register": {
-      "title": "Create new account",
-      "desc": "Use your email to create new account... it's free.",
-      "name": "Full name",
-      "username": "User name",
+  "register": {
+    "title": "Create new account",
+    "desc": "Use your email to create new account... it's free.",
+    "name": "Full name",
+    "username": "User name",
+    "email": "Email address",
+    "phone": "Mobile Phone",
+    "password": "Password",
+    "first-policy": "I have read the",
+    "second-policy": "Terms and Conditions",
+    "btn": "Register now",
+    "question": "Have an account?",
+    "link": "Login"
+  },
+  "validate": {
+    "nameRq": "Name is required",
+    "nameMin": "Name must have min 5 characters",
+    "usernameRq": "User name is required",
+    "usernameMin": "User name must have min 5 characters",
+    "usernameMax": "User name have max 16 characters",
+    "emailRq": "Email is required",
+    "emailInvalid": "Email is invalid",
+    "phoneRq": "Phone number is required",
+    "phoneInvalid": "Phone number is not valid !",
+    "passwordRq": "Password is required",
+    "passwordDesc": "Password must have minimum 8 characters, at least one uppercase letter, one lowercase letter and one number",
+    "passwordMin": "Password have min 8 characters",
+    "passwordMax": "Password have max 32 characters",
+    "avatarRq": "Avatar is required",
+    "policyRq": "Must Accept Terms and Conditions"
+  },
+  "btn": {
+    "upload": "Upload"
+  },
+  "admin": {
+    "sidebar": {
+      "dashboard": "Dashboard",
+      "movies": "Movies",
+      "cinemas": "Cinemas",
+      "showtimes": "Showtimes",
+      "users": "Users",
+      "account": "Account",
+      "reservations": "Reservations",
+      "promotions": "Promotions",
+      "contacts": "Contacts"
+    },
+    "movies": {
+      "title": "Title",
+      "genre": "Genre",
+      "language": "Language",
+      "description": "Description",
+      "director": "Director",
+      "cast": "Casts",
+      "duration": "Duration",
+      "releaseDate": "Release Date",
+      "endDate": "End Date",
+      "add": "Add movie",
+      "delete": "Delete movie",
+      "update": "Update movie",
+      "minutes": "minutes",
+      "search": "Search movie",
+      "requiredTitle": "Title is required !",
+      "requiredGenre": "Genre is required !",
+      "requiredLanguage": "Language is required !",
+      "requiredDirector": "Director is required !",
+      "requiredCast": "Cast is required ! !",
+      "requiredDuration": "Duration is required !",
+      "requiredDescription": "Description is required !"
+    },
+    "cinemas": {
+      "add": "Add cinema",
+      "update": "Update cinema",
+      "delete": "Delete cinema",
+      "name": "Name cinema",
+      "city": "City",
+      "ticketPrice": "Price",
+      "seatsAvailable": "Seats",
+      "addRow": "Add seat row",
+      "seatsOfRow": "Add  number of seats for row : ",
+      "permovie": "Per movie",
+      "seats": "Seats",
+      "remove": "Remove",
+      "search": "Search cinema",
+      "requiredName": "Name is required !",
+      "requiredCity": "City is required !",
+      "requiredTicketPrice": "Price is required !",
+      "requireSeatsAvailable": "Number of seats is required !"
+    },
+    "showtimes": {
+      "tableName": "List showtime",
+      "add": "Add showtime",
+      "update": "Update showtime",
+      "delete": "Delete showtime",
+      "requiredTime": "Time is required !",
+      "requiredMovie": "Movie is required !",
+      "requiredCinema": "Cinema is required !",
+      "time": "Start at",
+      "movie": "Select movie",
+      "cinema": "Select cinema",
+      "startDate": "Start date",
+      "endDate": "End date"
+    },
+    "users": {
+      "tableName": "List users",
+      "name": "Name",
+      "phone": "Phone number",
       "email": "Email address",
-      "phone": "Mobile Phone",
-      "password": "Password",
-      "first-policy": "I have read the",
-      "second-policy": "Terms and Conditions",
-      "btn": "Register now",
-      "question": "Have an account?",
-      "link": "Login"
+      "username": "User name",
+      "detail": "User detail",
+      "update": "Update user"
     },
-    "validate": {
-      "nameRq": "Name is required",
-      "nameMin": "Name must have min 5 characters",
-      "usernameRq": "User name is required",
-      "usernameMin": "User name must have min 5 characters",
-      "usernameMax": "User name have max 16 characters",
-      "emailRq": "Email is required",
-      "emailInvalid": "Email is invalid",
-      "phoneRq": "Phone number is required",
-      "phoneInvalid": "Phone number is not valid !",
-      "passwordRq": "Password is required",
-      "passwordDesc": "Password must have minimum 8 characters, at least one uppercase letter, one lowercase letter and one number",
-      "passwordMin": "Password have min 8 characters",
-      "passwordMax": "Password have max 32 characters",
-      "avatarRq": "Avatar is required",
-      "policyRq": "Must Accept Terms and Conditions"
+    "dashboard": {
+      "totalUsers": "Total Users",
+      "totalMovies": "Total Movies",
+      "totalCinemas": "Total Cinemas",
+      "sinceLastMonth": "Since last month"
     },
-    "btn": {
-      "upload": "Upload"
+    "account": {
+      "cardName": "Account information",
+      "joinAt": "Join at",
+      "update": "Update information",
+      "save": "Save"
+    },
+    "promotion": {
+      "search": "Search promotion",
+      "add": "Add promotion",
+      "title": "Title",
+      "discount": "Discount",
+      "description": "Description",
+      "startDate": "Start date",
+      "endDate": "End date",
+      "requiredTitle": "Title is required !",
+      "requiredDiscount": "Discount is required !",
+      "requiredDesc": "Desc is required !",
+      "delete": "Delete promotion",
+      "requiredCode": "Promotion code is required !",
+      "code":"Promotion code"
+    }
+  },
+  "public": {
+    "navbar": {
+      "home" : "Home",
+      "showing": "Now Showing",
+      "coming": "Coming Soon",
+      "cinemas": "Cinemas",
+      "contact": "Contact",
+      "dashboard": "Dashboard",
+      "logout": "Logout",
+      "login": "Login"
+    },
+    "home":{
+      "learnmore": "Learn More",
+      "buyticket": "Buy Tickets",
+      "suggest": "Suggested for you",
+      "by": "By",
+      "min": "min",
+      "exploreall": "Explore All",
+      "footer": "Crafted with love"
     }
   }
+}

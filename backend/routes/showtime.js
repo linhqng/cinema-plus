@@ -10,7 +10,7 @@ const auth = require("../middlewares/auth");
 var router = express.Router();
 
 /* GET all showtimes. */
-router.get("/", auth.enhance, Get_all_showtimes);
+router.get("/", Get_all_showtimes);
 router.post("/", auth.enhance, Create_a_showtime);
 // update show time by id
 router.patch("/:id", auth.enhance, Update_showtime_by_id);
