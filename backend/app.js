@@ -8,6 +8,7 @@ var movieRouter = require("./routes/movie");
 var cinemaRouter = require("./routes/cinemas");
 var showtimeRouter = require("./routes/showtime");
 var promotionRouter = require("./routes/promtions");
+var reservationRouter = require("./routes/reservation");
 var cors = require("cors");
 var app = express();
 var mongoose = require("mongoose");
@@ -42,5 +43,5 @@ app.use("/movies", movieRouter);
 app.use("/cinemas", cinemaRouter);
 app.use("/showtimes", showtimeRouter);
 app.use("/promotions", promotionRouter);
-
+app.use("/reservations", reservationRouter);
 module.exports = app;

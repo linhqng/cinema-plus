@@ -9,8 +9,9 @@ import { logout } from "../../../../redux/actions/auth";
 import { connect } from "react-redux";
 import NotificationsIcon from "@material-ui/icons/NotificationsOutlined";
 
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { logout } from "../../../../redux/actions/auth";
 Topbar.propTypes = {};
 
 function Topbar(props) {
@@ -24,7 +25,6 @@ function Topbar(props) {
     history,
     isAuthenticated,
   } = props;
-  console.log(props);
   const { t, i18n } = useTranslation();
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);

@@ -5,6 +5,7 @@ const {
   Delete_promotion_by_id,
   Upload_promotion_photo,
   Search_full_text_promotion,
+  Find_promotion,
 } = require("../controllers/promotionController/promotionController");
 const auth = require("../middlewares/auth");
 const upload = require("../middlewares/multer");
@@ -19,4 +20,6 @@ router.post(
 router.get("/", Get_all_promotion);
 router.delete("/:id", auth.enhance, Delete_promotion_by_id);
 router.get("/search-full/:q", Search_full_text_promotion);
+router.post("/find-promotion", Find_promotion);
+
 module.exports = router;

@@ -30,6 +30,7 @@ const MovieBanner = (props) => {
   const { t, i18n } = useTranslation();
   const { movie, fullDescription } = props;
   const classes = useStyles(props);
+  const { t } = useTranslation();
   if (!movie) return null;
 
   return (
