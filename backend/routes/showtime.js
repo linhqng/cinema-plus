@@ -5,6 +5,7 @@ const {
   Update_showtime_by_id,
   Get_showtime_by_id,
   Delete_showtime_by_id,
+  Find_showtime_for_booking,
 } = require("../controllers/showtimeController/showtimeController");
 const auth = require("../middlewares/auth");
 var router = express.Router();
@@ -19,4 +20,7 @@ router.get("/:id", auth.enhance, Get_showtime_by_id);
 
 //delete showo time bby id
 router.delete("/:id", auth.enhance, Delete_showtime_by_id);
+//find show time for booking
+
+
 module.exports = router;
