@@ -19,7 +19,7 @@ router.post("/photo/:id", upload("movies").single("file"), Upload_movie_photo);
 //Get all movie
 router.get("/", Get_all_movie);
 //Get movie by id
-router.get("/:id", auth.enhance, Get_movie_by_id);
+router.get("/:id", Get_movie_by_id);
 //update movie by id
 router.put("/:id", auth.enhance, Update_movie_by_id);
 //delete movie by id

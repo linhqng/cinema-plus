@@ -59,6 +59,9 @@ const Navbar = ({ classes, isAuth, user, logout }) => {
           <Link className={classes.navLink} to="/cinemas">
             {t("public.navbar.cinemas")}
           </Link>
+          <Link className={classes.navLink} to="/promotions">
+            Promotions
+          </Link>
           <Link className={classes.navLink} to="/contact">
             {t("public.navbar.contact")}
           </Link>
@@ -158,6 +161,11 @@ const Navbar = ({ classes, isAuth, user, logout }) => {
             <li className={classes.innerNavListItem}>
               <Link className={classes.innerNavLink} to="/cinemas">
                 {t("public.navbar.cinemas")}
+              </Link>
+            </li>
+            <li className={classes.innerNavListItem}>
+              <Link className={classes.innerNavLink} to="/promotions">
+                Promotions
               </Link>
             </li>
             <li className={classes.innerNavListItem}>

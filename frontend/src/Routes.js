@@ -12,6 +12,17 @@ import AuthRoute from "./routers/AuthRoute";
 const Login = lazy(() => import("./page/Public/Login/Login"));
 const Register = lazy(() => import("./page/Public/Register/Register"));
 const HomePage = lazy(() => import("./page/Public/HomePage/HomePage"));
+const MovieCategoryPage = lazy(() =>
+  import("./page/Public/MovieCategoryPage/MovieCategoryPage")
+);
+
+const CinemasPage = lazy(() => import("./page/Public/CinemasPage/CinemasPage"));
+const Contact = lazy(() => import("./page/Public/ContactPage/ContactPage"));
+const PromotionsPage = lazy(() =>
+  import("./page/Public/PromotionsPage/PromotionsPage")
+);
+
+const MoviePage = lazy(() => import("./page/Public/MoviePage/MoviePage"));
 
 const DashboardPage = lazy(() => import("./page/Admin/Dashboard/Dashboard"));
 const MovieList = lazy(() => import("./page/Admin/MovieList/MovieList"));
@@ -39,6 +50,24 @@ const Routes = () => {
             layout={AdminLayout}
             component={DashboardPage}
           />
+          <WithLayoutRoute
+            exact
+            path="/cinemas"
+            layout={PublicLayout}
+            component={CinemasPage}
+          />
+          <WithLayoutRoute
+            exact
+            path="/contact"
+            layout={PublicLayout}
+            component={Contact}
+          />
+          <WithLayoutRoute
+            exact
+            path="/promotions"
+            layout={PublicLayout}
+            component={PromotionsPage}
+          />
           <ProtectedRoute
             exact
             path="/admin/movies"
@@ -50,6 +79,19 @@ const Routes = () => {
             path="/"
             layout={PublicLayout}
             component={HomePage}
+          />
+          <WithLayoutRoute
+            exact
+            path="/movie/category/:category"
+            layout={PublicLayout}
+            component={MovieCategoryPage}
+          />
+          <WithLayoutRoute
+            exact
+            path="/movie/:id"
+            layout={PublicLayout}
+            layoutProps={{ withFooter: false }}
+            component={MoviePage}
           />
           <ProtectedRoute
             exact

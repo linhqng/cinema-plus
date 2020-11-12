@@ -80,7 +80,7 @@ function PromotionCard(props) {
           {promotion.description}
         </Typography>
         <Typography className={classes.updateText} variant="body2">
-          {t("admin.promotion.discount")} : {promotion.discount}
+          {t("admin.promotion.discount")} : {promotion.discount}%
         </Typography>
         <Typography className={classes.updateText} variant="body2">
           {t("admin.promotion.code")} : {promotion.code}

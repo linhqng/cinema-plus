@@ -2,8 +2,8 @@ import React, { Fragment, useState } from "react";
 import PropTypes from "prop-types";
 import { Drawer, withStyles } from "@material-ui/core";
 
-import styles from './styles'
-import classnames from 'classnames';
+import styles from "./styles";
+import classnames from "classnames";
 import Topbar from "./components/Topbar/Topbar";
 import Sidebar from "./components/Sidebar/Sidebar";
 AdminLayout.propTypes = {
@@ -16,7 +16,7 @@ AdminLayout.defaultProps = {
 };
 function AdminLayout(props) {
   const [isOpen, setisOpen] = useState(false);
-  const { classes } = props;
+  const { classes, history } = props;
   const handleToggleOpen = () => {
     setisOpen(!isOpen);
   };
@@ -30,6 +30,7 @@ function AdminLayout(props) {
         ToolbarClasses={classes.topbar}
         isSidebarOpen={isOpen}
         onToggleSidebar={handleToggleOpen}
+        history={history}
       />
       <Drawer
         anchor="left"
