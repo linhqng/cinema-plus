@@ -18,6 +18,8 @@ const MovieCategoryPage = lazy(() =>
 
 const MoviePage = lazy(() => import("./page/Public/MoviePage/MoviePage"));
 
+const BookingPage = lazy(() => import("./page/Public/BookingPage/BookingPage"));
+
 const DashboardPage = lazy(() => import("./page/Admin/Dashboard/Dashboard"));
 const MovieList = lazy(() => import("./page/Admin/MovieList/MovieList"));
 const CinemaList = lazy(() => import("./page/Admin/CinemaList/CinemaList"));
@@ -29,7 +31,7 @@ const Account = lazy(() => import("./page/Admin/Account/Account"));
 const Promotion = lazy(() =>
   import("./page/Admin/PromotionList/PromotionList")
 );
-
+const Reservation = lazy(() => import("./page/Admin/Reservation/Reservation"));
 const Routes = () => {
   return (
     <Suspense fallback={<Loading />}>
@@ -69,6 +71,13 @@ const Routes = () => {
             layoutProps={{ withFooter: false }}
             component={MoviePage}
           />
+          <WithLayoutRoute
+            exact
+            path="/movie/booking/:id"
+            layout={PublicLayout}
+            layoutProps={{ withFooter: false }}
+            component={BookingPage}
+          />
           <ProtectedRoute
             exact
             path="/admin/cinemas"
@@ -98,6 +107,12 @@ const Routes = () => {
             path="/admin/promotions"
             layout={AdminLayout}
             component={Promotion}
+          ></ProtectedRoute>
+          <ProtectedRoute
+            exact
+            path="/admin/reservations"
+            layout={AdminLayout}
+            component={Reservation}
           ></ProtectedRoute>
         </Switch>
       </Router>

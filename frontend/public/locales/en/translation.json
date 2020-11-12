@@ -135,7 +135,51 @@
       "requiredDesc": "Desc is required !",
       "delete": "Delete promotion",
       "requiredCode": "Promotion code is required !",
-      "code":"Promotion code"
+      "code": "Promotion code"
+    },
+    "reservation":{
+      "name":"User name",
+      "movie":"Movie",
+      "cinema":"Cinema",
+      "status":"Status",
+      "paymentmethod":"Payment method",
+      "date":"Date",
+      "time":"Time",
+      "seats":"Seats",
+      "listuncheck":"List uncheck reservations",
+      "listchecked":"List checked reservations",
+      "total":"Total",
+      "confirmCheckin": "Confirm checkin.",
+      "confirmDelete": "Confirm delete.",
+      "confirmPay": "Confirm payment."
     }
+  },
+  "moviedetail": {
+    "requiredLogin": "You must login before buy ticket ?",
+    "buytickets": "Buy tickets",
+    "director": "By",
+    "minute": "min",
+    "learnmore": "Learn more",
+    "cast": "Cast",
+    "genre": "Genre"
+  },
+  "booking": {
+    "selectCinema": "Select cinema",
+    "date": "Select date",
+    "time": "Select time",
+    "seatsAvailable": "Seats available",
+    "reservedSeats": "Reserved seats",
+    "selectedSeats": "Selected seats",
+    "name": "Name",
+    "tickets": "Tikets",
+    "price": "Price",
+    "payment": "Payment",
+    "nocinema":" No Cinema Available.",
+    "paymentmethod":"Select payment method.",
+    "typecode":"Type promotion code",
+    "discount":"Discount",
+    "check":"Check",
+    "total":"Total",
+    "confirm":"Confirm"
   }
 }

@@ -7,6 +7,7 @@ import theme from "./theme/index";
 import Routes from "./Routes";
 import "typeface-montserrat";
 import Alert from "./components/Alert/Alert";
+import "./assets/scss/index.scss";
 const App = () => {
   return (
     <Provider store={store}>

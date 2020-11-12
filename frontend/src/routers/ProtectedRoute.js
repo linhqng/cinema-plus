@@ -1,35 +1,35 @@
-import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import React from "react";
+import { Route, Redirect } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 const ProtectedRoute = ({
   layout: Layout,
   component: Component,
   isAuthenticated,
+  user,
   ...rest
 }) => (
   <Route
     {...rest}
-    render={props =>
-      isAuthenticated ? (
+    render={(props) =>
+      isAuthenticated && user.role === "superadmin" ? (
         <Layout>
           <Component {...props} />
         </Layout>
       ) : (
-        <Redirect to={{ pathname: '/', state: { from: props.location } }} />
+        <Redirect to={{ pathname: "/", state: { from: props.location } }} />
       )
     }
   />
 );
 
 ProtectedRoute.propTypes = {
-  isAuthenticated: PropTypes.bool
+  isAuthenticated: PropTypes.bool,
 };
-ProtectedRoute.defaultProps = {
-  isAuthenticated: true
-};
-const mapStateToProps = state => ({
-  //isAuthenticated: state.authState.isAuthenticated
+
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.authState.isAuthenticated,
+  user: state.authState.user,
 });
 export default connect(mapStateToProps)(ProtectedRoute);

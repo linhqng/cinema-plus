@@ -8,6 +8,8 @@ import showtimes from "./showtimes";
 import users from "./user";
 import profile from "./profile";
 import promotion from "./promotion";
+import checkout from "./checkout";
+import reservation from "./reservation";
 export default combineReducers({
   alertState: alert,
   movieState: movies,
@@ -17,4 +19,6 @@ export default combineReducers({
   userState: users,
   profileState: profile,
   promotionState: promotion,
+  checkoutState: checkout,
+  reservationState: reservation,
 });

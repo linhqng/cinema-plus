@@ -7,8 +7,10 @@ import React, { useEffect } from "react";
 import styles from "./styles";
 import NotificationsIcon from "@material-ui/icons/NotificationsOutlined";
 
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useDispatch } from "react-redux";
+import { logout } from "../../../../redux/actions/auth";
 Topbar.propTypes = {};
 
 function Topbar(props) {
@@ -23,9 +25,15 @@ function Topbar(props) {
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
   };
+  const dispatch = useDispatch();
+  const history = useHistory();
   useEffect(() => {
     changeLanguage("en");
   }, []);
+  const handleLogout = () => {
+    dispatch(logout());
+    history.push("/");
+  };
   return (
     <div className={`${classes.root} , ${ToolbarClasses}`}>
       <Toolbar className={classes.toolbar}>
@@ -54,11 +62,10 @@ function Topbar(props) {
         </IconButton> */}
         <div style={{ display: "flex", alignItems: "center" }}>
           <div>
-            
             <Button onClick={() => changeLanguage("vi")}>VIE</Button>
             <Button onClick={() => changeLanguage("en")}>ENG</Button>
           </div>
-          <IconButton className={classes.signOutButton}>
+          <IconButton className={classes.signOutButton} onClick={handleLogout}>
             <InputIcon />
           </IconButton>
         </div>

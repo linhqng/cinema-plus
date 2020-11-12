@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import ArrowRightAlt from "@material-ui/icons/ArrowRightAlt";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
 import styles from "./styles";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles(styles);
 
@@ -28,6 +29,7 @@ const StyledRating = withStyles({
 const MovieBanner = (props) => {
   const { movie, fullDescription } = props;
   const classes = useStyles(props);
+  const { t } = useTranslation();
   if (!movie) return null;
 
   return (
@@ -70,14 +72,14 @@ const MovieBanner = (props) => {
             {textTruncate(movie.description, 450)}
           </Typography>
           <Typography className={classes.director} variant="h4" color="inherit">
-            By: {movie.director}
+            {t("moviedetail.director")} : {movie.director}
           </Typography>
           <Typography
             className={classes.duration}
             variant="body1"
             color="inherit"
           >
-            {movie.duration} min
+            {movie.duration} {t("moviedetail.minute")}
           </Typography>
           <Typography className={classes.genre} variant="body1" color="inherit">
             {movie.genre}
@@ -94,14 +96,14 @@ const MovieBanner = (props) => {
         {fullDescription ? (
           <Link to={`booking/${movie._id}`} style={{ textDecoration: "none" }}>
             <Button variant="contained" className={classes.button}>
-              Buy Tickets
+              {t("moviedetail.buytickets")}
               <ArrowRightAlt className={classes.buttonIcon} />
             </Button>
           </Link>
         ) : (
           <Link to={`movie/${movie._id}`} style={{ textDecoration: "none" }}>
             <Button className={classnames(classes.button, classes.learnMore)}>
-              Learn More
+              {t("moviedetail.learnmore")}
               <ArrowRightAlt className={classes.buttonIcon} />
             </Button>
           </Link>

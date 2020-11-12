@@ -60,3 +60,18 @@ exports.Search_full_text_promotion = async (req, res, next) => {
     });
   }
 };
+exports.Find_promotion = async (req, res, next) => {
+  const conditions = req.body;
+  const ObjecFind = {
+    cinemaId : conditions.cinemaId,
+    code: conditions.code,
+    startDate: { $lte: new Date() }, // startDate <= dieu kien client
+    endDate: { $gte: new Date() },
+  };
+  try {
+    const promotion = await Promotion.find(ObjecFind);
+    return res.send(promotion);
+  } catch (error) {
+    return res.status(500).send("erro 500");
+  }
+};
