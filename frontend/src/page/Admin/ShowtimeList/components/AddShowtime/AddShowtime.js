@@ -171,7 +171,7 @@ function AddShowtime(props) {
                     name="startDate"
                     id="start-date"
                     label={t("admin.showtimes.startDate")}
-                    minDate={new Date()}
+                 
                     value={props.values.startDate}
                     onChange={(date) =>
                       props.setFieldValue("startDate", date._d)
@@ -188,7 +188,7 @@ function AddShowtime(props) {
                     id="end-date"
                     label={t("admin.showtimes.endDate")}
                     name="endDate"
-                    minDate={new Date(props.values.startDate)}
+                  
                     value={props.values.endDate}
                     onChange={(date) => props.setFieldValue("endDate", date._d)}
                     KeyboardButtonProps={{

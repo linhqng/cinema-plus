@@ -13,6 +13,13 @@
     "question": "Đã có tài khoản?",
     "link": "Đăng nhập"
   },
+  "contact":{
+    "title": "Liên hệ",
+    "desc": "Nói cho chúng tôi biết suy nghĩ của bạn!",
+    "btn": "Gởi tin nhắn",
+    "message": "Tin nhắn",
+    "hint": "Bạn muốn nói với chúng tôi điều gì?"
+  },
   "validate": {
     "nameRq": "Họ tên là bắt buộc",
     "nameMin": "Họ tên ít nhất phải 5 ký tự",
@@ -28,7 +35,8 @@
     "passwordMin": "Mật khẩu có ít nhất 8 ký tự",
     "passwordMax": "Mật khẩu có ít nhất 32 ký tự",
     "avatarRq": "Ảnh đại diện là bắt buộc",
-    "policyRq": "Chấp nhận Điều khoản và Chính sách"
+    "policyRq": "Chấp nhận Điều khoản và Chính sách",
+    "messageRq": "Tin nhắn là bắc buộc"
   },
   "btn": {
     "upload": "Tải lên"
@@ -125,17 +133,33 @@
     "promotion": {
       "search": "Tìm kiếm khuyến mãi",
       "add": "Thêm khuyến mãi",
-      "title":"Tiêu đề khuyến mãi",
-      "discount":"Phần trăm giảm giá",
-      "description":"Mô tả",
-      "startDate":"Ngày bắt đầu",
-      "endDate":"Ngày kết thúc",
+      "title": "Tiêu đề khuyến mãi",
+      "discount": "Phần trăm giảm giá",
+      "description": "Mô tả",
+      "startDate": "Ngày bắt đầu",
+      "endDate": "Ngày kết thúc",
       "requiredTitle": "Nhập tiêu đề!",
       "requiredDiscount": "Nhập giảm giá!",
-      "requiredDesc":"Nhập mô tả !",
-      "delete":"Xóa khuyến mãi",
-      "requiredCode":"Nhập mã khuyến mãi",
-      "code":"Mã giảm giá"
+      "requiredDesc": "Nhập mô tả !",
+      "delete": "Xóa khuyến mãi",
+      "requiredCode": "Nhập mã khuyến mãi",
+      "code": "Mã giảm giá"
+    },
+    "reservation": {
+      "name": "Tên",
+      "movie": "Phim",
+      "cinema": "Rạp",
+      "status": "Thanh toán",
+      "paymentmethod": "Phương thức",
+      "date": "Ngày",
+      "time": "Giờ",
+      "seats": "Chỗ ngồi",
+      "listuncheck": "Danh sách đơn đặt chưa checkin",
+      "listchecked": "Danh sách đơn đặt đã checkin",
+      "total": "Tổng",
+      "confirmCheckin": "Xác nhận checkin.",
+      "confirmDelete": "Xác nhận xóa",
+      "confirmPay": "Xác nhận thanh toán"
     }
   },
   "public": {
@@ -144,6 +168,7 @@
       "showing": "Đang Công Chiếu",
       "coming": "Sắp Ra Mắt",
       "cinemas": "Rạp",
+      "promotions": "Khuyến mãi",
       "contact": "Liên hệ",
       "dashboard": "Trang Thông Tin",
       "logout": "Đăng Xuất",
@@ -157,6 +182,33 @@
       "min": "phút",
       "exploreall": "Xem Tất Cả",
       "footer": "Được chế tạo bằng tình yêu"
-    }
+    }},
+  "moviedetail": {
+    "requiredLogin": "Bạn phải đăng nhập trước khi mua vé ?",
+    "buytickets": "Mua vé",
+    "director": "Đạo diễn",
+    "minute": "phút",
+    "learnmore": "Chi tiết",
+    "cast": "Diễn viên",
+    "genre": "Thể loại"
+  },
+  "booking": {
+    "selectCinema": "Chọn rạp chiếu",
+    "date": "Chọn ngày",
+    "time": "Chọn thời gian",
+    "seatsAvailable": "Chỗ ngồi có sẵn",
+    "reservedSeats": "Chỗ đã được đặt",
+    "selectedSeats": "Chố được chọn",
+    "name": "Tên",
+    "tickets": "Số vé",
+    "price": "Giá",
+    "payment": "Thanh toán",
+    "nocinema": "Không có rạp chiếu cho phim này",
+    "paymentmethod": "Chọn phương thức thanh toán",
+    "typecode": "Nhập mã giảm giá",
+    "discount": "Phần trăm giảm giá",
+    "check": "Kiêm tra",
+    "total": "Thành tiền",
+    "confirm": "Xác nhận thanh toán"
   }
 }

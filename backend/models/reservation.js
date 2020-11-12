@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 const reservationSchema = new Schema({
@@ -15,38 +15,46 @@ const reservationSchema = new Schema({
     type: [Schema.Types.Mixed],
     required: true,
   },
-  ticketPrice: {
-    type: Number,
-    required: true,
-  },
   total: {
     type: Number,
     required: true,
   },
   movieId: {
     type: Schema.Types.ObjectId,
-    ref: 'Movie',
+    ref: "movies",
     required: true,
   },
   cinemaId: {
     type: Schema.Types.ObjectId,
-    ref: 'Cinema',
+    ref: "cinemas",
     required: true,
   },
-  username: {
-    type: String,
-    required: true,
-  },
-  phone: {
-    type: String,
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
     required: true,
   },
   checkin: {
     type: Boolean,
     default: false,
   },
+  status: {
+    type: String,
+    default: "pending",
+  },
+  paymentMethod: {
+    type: String,
+    default: "counter",
+  },
 });
 
-const Reservation = mongoose.model('Reservation', reservationSchema);
+reservationSchema.pre("save", function (next) {
+  const reservation = this;
+  if (reservation.paymentMethod != "counter") {
+    reservation.status = "paid";
+  }
+  next();
+});
+const Reservation = mongoose.model("Reservation", reservationSchema);
 
 module.exports = Reservation;

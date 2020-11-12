@@ -27,9 +27,6 @@ const ProtectedRoute = ({
 ProtectedRoute.propTypes = {
   isAuthenticated: PropTypes.bool,
 };
-ProtectedRoute.defaultProps = {
-  isAuthenticated: true,
-};
 const mapStateToProps = (state) => ({
   isAuthenticated: state.authState.isAuthenticated,
   user: state.authState.user,
