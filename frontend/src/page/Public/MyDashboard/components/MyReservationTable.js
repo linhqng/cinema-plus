@@ -10,12 +10,13 @@ import {
   TableRow,
   TablePagination,
 } from "@material-ui/core";
-
+import { useTranslation } from "react-i18next";
 import Portlet from "../../../../components/Portlet/Portlet";
 import PortletContent from "../../../../components/PortletContent/PortletContent";
 import styles from "./styles";
 
 const ReservationsTable = ({ classes, className, reservations }) => {
+  const { t, i18n } = useTranslation();
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [page, setPage] = useState(0);
 
@@ -34,12 +35,12 @@ const ReservationsTable = ({ classes, className, reservations }) => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell align="left">Movie</TableCell>
-              <TableCell align="left">Cinema</TableCell>
-              <TableCell align="left">Date</TableCell>
-              <TableCell align="left">Start At</TableCell>
-              <TableCell align="left">Method</TableCell>
-              <TableCell align="left">Total</TableCell>
+              <TableCell align="left">{t("dashboard.movie")}</TableCell>
+              <TableCell align="left">{t("dashboard.cinema")}</TableCell>
+              <TableCell align="left">{t("dashboard.date")}</TableCell>
+              <TableCell align="left">{t("dashboard.startAt")}</TableCell>
+              <TableCell align="left">{t("dashboard.method")}</TableCell>
+              <TableCell align="left">{t("dashboard.total")}</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

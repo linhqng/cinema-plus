@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { makeStyles, Grid, Typography, Container } from "@material-ui/core";
 import { getCinemas } from "../../../redux/actions/cinemas";
 import CinemaCard from "../components/CinemaCard/CinemaCard";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -16,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
 
 function CinemasPage(props) {
   const classes = useStyles(props);
+  const { t, i18n } = useTranslation();
   const { cinemas, getCinemas } = props;
   useEffect(() => {
     if (!cinemas.length) getCinemas();
@@ -26,7 +28,7 @@ function CinemasPage(props) {
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <Typography className={classes.title} variant="h2" color="inherit">
-            Our Cinemas
+            {t("cinemas.title")}
           </Typography>
         </Grid>
         <Grid

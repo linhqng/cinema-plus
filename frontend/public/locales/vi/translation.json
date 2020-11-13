@@ -20,6 +20,29 @@
     "message": "Tin nhắn",
     "hint": "Bạn muốn nói với chúng tôi điều gì?"
   },
+  "cinemas":{
+    "title": "Rạp",
+    "perMovie": "mỗi phim",
+    "seatsAvailable": "chỗ"
+  },
+  "promotions":{
+    "title": "Khuyến mãi"
+  },
+  "dashboard":{
+    "account": "Tài khoản",
+    "reservations": "Vé đã đặt",
+    "movie": "Phim",
+    "cinema": "Rạp",
+    "date": "Ngày",
+    "startAt": "Giờ chiếu",
+    "method": "Phương thức",
+    "total": "Tổng tiền",
+    "rowsPerPage": "Hàng"
+  },
+    "category":{
+    "search": "Tìm theo tên",
+    "notExist": "Không có phim nào!"
+  },
   "validate": {
     "nameRq": "Họ tên là bắt buộc",
     "nameMin": "Họ tên ít nhất phải 5 ký tự",

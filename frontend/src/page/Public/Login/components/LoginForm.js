@@ -16,16 +16,7 @@ import {
 import styles from "./styles";
 const validateForm = Yup.object().shape({
   username: Yup.string().required("User name is not empty"),
-  // .min(5, "Username must have min 5 characters")
-  // .max(16, "Username have max 16 characters"),
-  password: Yup.string()
-    // .matches(
-    //   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
-    //   "Password must have minimum 8 characters, at least one uppercase letter, one lowercase letter and one number"
-    // )
-    .required("Password is not empty"),
-  // .min(8, "Password have min 8 characters")
-  // .max(32, "Password have max 32 characters"),
+  password: Yup.string().required("Password is not empty"),
 });
 
 function LoginForm(props) {
@@ -37,13 +28,15 @@ function LoginForm(props) {
     history,
     resetForm,
     setSubmitting,
+    location,
   } = props;
   const dispatch = useDispatch();
+  const target = location.state ? location.state.from.pathname : "/";
   useEffect(() => {
     if (isAuthenticated && redirect) {
       if (user && user.role === "superadmin")
         return history.push("/admin/dashboard");
-      return history.push("/");
+      return history.push(target);
     }
   }, [isAuthenticated, user, redirect]);
 

@@ -7,8 +7,10 @@ import styles from "./styles";
 // import CaledarIcon from '@material-ui/icons/CalendarToday';
 import { textTruncate } from "../../../../utils/utils";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const MovieCard = (props) => {
+  const { t, i18n } = useTranslation();
   const { classes, movie } = props;
 
   return (
@@ -28,14 +30,14 @@ const MovieCard = (props) => {
               variant="h4"
               color="inherit"
             >
-              By: {movie.director}
+              {t("public.home.by")}: {movie.director}
             </Typography>
             <Typography
               className={classes.duration}
               variant="body1"
               color="inherit"
             >
-              {movie.duration} min
+              {movie.duration} {t("public.home.min")}
             </Typography>
             <Typography
               className={classes.genre}

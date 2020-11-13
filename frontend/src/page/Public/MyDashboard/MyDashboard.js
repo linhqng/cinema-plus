@@ -5,6 +5,7 @@ import { getMyReservations } from "../../../redux/actions/reservation";
 import ReservationTable from "./components/MyReservationTable";
 import Account from "../../Admin/Account/Account";
 import { useDispatch } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -21,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function MyDashboard(props) {
+  const { t, i18n } = useTranslation();
   const { user, reservations } = props;
   const classes = useStyles(props);
   const dispatch = useDispatch();
@@ -38,7 +40,7 @@ function MyDashboard(props) {
                 variant="h2"
                 color="inherit"
               >
-                My Reservations
+                {t("dashboard.reservations")}
               </Typography>
             </Grid>
             <Grid item xs={12}>
@@ -48,7 +50,7 @@ function MyDashboard(props) {
         )}
         <Grid item xs={12}>
           <Typography className={classes.title} variant="h2" color="inherit">
-            My Account
+            {t("dashboard.account")}
           </Typography>
         </Grid>
         <Grid item xs={12}>

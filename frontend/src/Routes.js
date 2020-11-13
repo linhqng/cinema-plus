@@ -6,6 +6,7 @@ import PublicLayout from "./layouts/PublicLayout/PublicLayout";
 import AdminLayout from "./layouts/AdminLayout/AdminLayout";
 
 import ProtectedRoute from "./routers/ProtectedRoute";
+import ProtectedUserRoute from "./routers/ProtectedUserRoute";
 import WithLayoutRoute from "./routers/WithLayoutRoute";
 import AuthRoute from "./routers/AuthRoute";
 
@@ -58,7 +59,7 @@ const Routes = () => {
             layout={PublicLayout}
             component={CinemasPage}
           />{" "}
-          <WithLayoutRoute
+          <ProtectedUserRoute
             exact
             path="/mydashboard"
             layout={PublicLayout}

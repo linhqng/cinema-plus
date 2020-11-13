@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { makeStyles, Grid, Typography, Container } from "@material-ui/core";
 import { getPromotions } from "../../../redux/actions/promotion";
 import PromotionCard from "../../Admin/PromotionList/components/PromotionCard/PromotionCard";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -15,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function CinemasPage(props) {
+  const { t, i18n } = useTranslation();
   const classes = useStyles(props);
   const { promotions, getPromotions } = props;
   useEffect(() => {
@@ -26,7 +28,7 @@ function CinemasPage(props) {
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <Typography className={classes.title} variant="h2" color="inherit">
-            Our Promotions
+            {t("promotions.title")}
           </Typography>
         </Grid>
         <Grid

@@ -20,6 +20,30 @@
     "message": "Message",
     "hint": "What do you wanna tell us!"
   },
+  "cinemas":{
+    "title": "Our Cinemas",
+    "perMovie": "per movie",
+    "seatsAvailable": "seats Available"
+  },
+  "promotions":{
+    "title": "Our Promotions"
+  },
+  "dashboard":{
+    "account": "My Account",
+    "reservations": "My Reservations",
+    "movie": "Movie",
+    "cinema": "Cinema",
+    "date": "Date",
+    "startAt": "Start At",
+    "method": "Method",
+    "total": "Total",
+    "rowsPerPage": "Rows per page"
+  },
+  "category":{
+    "search": "Search name",
+    "notExist": "Category does not exist."
+  },
+
   "validate": {
     "nameRq": "Name is required",
     "nameMin": "Name must have min 5 characters",
