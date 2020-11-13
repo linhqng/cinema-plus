@@ -13,6 +13,13 @@
     "question": "Have an account?",
     "link": "Login"
   },
+  "contact":{
+    "title": "Contact Us",
+    "desc": "Tell us what do you think about our business.",
+    "btn": "Send Message",
+    "message": "Message",
+    "hint": "What do you wanna tell us!"
+  },
   "validate": {
     "nameRq": "Name is required",
     "nameMin": "Name must have min 5 characters",
@@ -28,7 +35,8 @@
     "passwordMin": "Password have min 8 characters",
     "passwordMax": "Password have max 32 characters",
     "avatarRq": "Avatar is required",
-    "policyRq": "Must Accept Terms and Conditions"
+    "policyRq": "Must Accept Terms and Conditions",
+    "messageRq": "Message is required"
   },
   "btn": {
     "upload": "Upload"
@@ -160,6 +168,7 @@
       "showing": "Now Showing",
       "coming": "Coming Soon",
       "cinemas": "Cinemas",
+      "promotions": "Promotions",
       "contact": "Contact",
       "dashboard": "Dashboard",
       "logout": "Logout",

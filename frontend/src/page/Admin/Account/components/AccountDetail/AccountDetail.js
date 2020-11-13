@@ -57,28 +57,28 @@ function AccountDetail(props) {
             .max(32, t("validate.passwordMax")),
         })}
         onSubmit={(values) => {
-            if (values.password === "") {
-              console.log(values);
-              dispatch(
-                updateUser(
-                  {
-                    name: values.name,
-                    phone: values.phone,
-                  },
-                  profile._id
-                )
-              );
-            } else {
-              dispatch(updateUser(values, profile._id));
-            }
+          if (values.password === "") {
+            dispatch(
+              updateUser(
+                {
+                  name: values.name,
+                  phone: values.phone,
+                },
+                profile._id
+              )
+            );
+          } else {
+            dispatch(updateUser(values, profile._id));
+          }
         }}
       >
         {(props) => {
-          console.log(props.values);
           return (
             <CardContent>
               <Form>
-                <Typography variant="h4">{t("admin.account.cardName")}</Typography>
+                <Typography variant="h4">
+                  {t("admin.account.cardName")}
+                </Typography>
                 <div className={classes.field}>
                   <TextField
                     error={

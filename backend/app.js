@@ -6,6 +6,7 @@ var logger = require("morgan");
 var usersRouter = require("./routes/users");
 var movieRouter = require("./routes/movie");
 var cinemaRouter = require("./routes/cinemas");
+var contactRouter = require("./routes/contact");
 var showtimeRouter = require("./routes/showtime");
 var promotionRouter = require("./routes/promtions");
 var reservationRouter = require("./routes/reservation");
@@ -39,6 +40,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 
 app.use("/users", usersRouter);
+app.use("/contact", contactRouter);
 app.use("/movies", movieRouter);
 app.use("/cinemas", cinemaRouter);
 app.use("/showtimes", showtimeRouter);

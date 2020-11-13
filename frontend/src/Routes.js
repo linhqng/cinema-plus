@@ -17,6 +17,7 @@ const MovieCategoryPage = lazy(() =>
 );
 
 const CinemasPage = lazy(() => import("./page/Public/CinemasPage/CinemasPage"));
+const MyDashboard = lazy(() => import("./page/Public/MyDashboard/MyDashboard"));
 const Contact = lazy(() => import("./page/Public/ContactPage/ContactPage"));
 const PromotionsPage = lazy(() =>
   import("./page/Public/PromotionsPage/PromotionsPage")
@@ -45,7 +46,6 @@ const Routes = () => {
         <Switch>
           <AuthRoute exact path="/login" component={Login} />
           <AuthRoute exact path="/register" component={Register} />
-
           <ProtectedRoute
             exact
             path="/admin/dashboard"
@@ -57,6 +57,12 @@ const Routes = () => {
             path="/cinemas"
             layout={PublicLayout}
             component={CinemasPage}
+          />{" "}
+          <WithLayoutRoute
+            exact
+            path="/mydashboard"
+            layout={PublicLayout}
+            component={MyDashboard}
           />
           <WithLayoutRoute
             exact

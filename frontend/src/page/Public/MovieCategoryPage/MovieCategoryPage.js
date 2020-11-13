@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { makeStyles, Grid, Typography } from "@material-ui/core";
 import ResponsiveMovieCard from "../components/ResponsiveMovieCard/ResponsiveMovieCard";
 import { getMovies } from "../../../redux/actions/movies";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -20,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
 
 function MovieCategoryPage(props) {
   const { movies, getMovies } = props;
+  const { t, i18n } = useTranslation();
   const category = props.match.params.category;
   useEffect(() => {
     if (!movies.length) {
@@ -40,7 +42,9 @@ function MovieCategoryPage(props) {
         <>
           <Grid item xs={12}>
             <Typography className={classes.title} variant="h2" color="inherit">
-              {category}
+              {category === "nowShowing"
+                ? t("public.navbar.showing")
+                : t("public.navbar.coming")}
             </Typography>
           </Grid>
           <Grid

@@ -86,7 +86,7 @@ exports.Create_reservation = async (req, res) => {
 };
 
 exports.Get_my_reservations = async (req, res) => {
-  const id = req.user._id;
+  const id = req.body.userId;
   try {
     const reservations = await Reservation.find({ userId: id })
       .sort({ date: -1 })

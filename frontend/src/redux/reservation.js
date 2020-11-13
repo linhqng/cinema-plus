@@ -1,11 +1,13 @@
 import {
   SET_CHECKIN_RESERVATION,
   SET_UNCHECKIN_RESERVATION,
+  GET_MY_RESERVATIONS,
 } from "./types/reservation";
 
 const initialState = {
   reservationChecked: [],
   reservationUncheck: [],
+  myReservations: [],
 };
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -18,6 +20,12 @@ export default (state = initialState, action) => {
       return {
         ...state,
         reservationChecked: action.payload,
+      };
+    }
+    case GET_MY_RESERVATIONS: {
+      return {
+        ...state,
+        myReservations: action.payload,
       };
     }
     default:
