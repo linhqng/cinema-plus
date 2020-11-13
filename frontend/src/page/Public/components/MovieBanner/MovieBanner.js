@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import classnames from "classnames";
 import { Rating } from "@material-ui/lab";
 import {
@@ -9,11 +9,13 @@ import {
   withStyles,
 } from "@material-ui/core";
 import { textTruncate } from "../../../../utils/utils";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import ArrowRightAlt from "@material-ui/icons/ArrowRightAlt";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
 import styles from "./styles";
 import { useTranslation } from "react-i18next";
+import ModalRequiredLogin from "../ModalRequiredLogin/ModalRequiredLogin";
+import { useSelector } from "react-redux";
 
 const useStyles = makeStyles(styles);
 
@@ -27,13 +29,36 @@ const StyledRating = withStyles({
 })(Rating);
 
 const MovieBanner = (props) => {
+  const [open, setOpen] = useState(false);
   const { t, i18n } = useTranslation();
   const { movie, fullDescription } = props;
   const classes = useStyles(props);
+  const history = useHistory();
+  const isAuthenticated = useSelector(
+    (state) => state.authState.isAuthenticated
+  );
   if (!movie) return null;
 
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const checkIsLogin = () => {
+    if (!isAuthenticated) {
+      handleClickOpen();
+    } else {
+      history.push(`booking/${movie._id}`);
+    }
+  };
   return (
     <div className={classes.movieHero}>
+      <ModalRequiredLogin
+        open={open}
+        handleClose={handleClose}
+      ></ModalRequiredLogin>
       <div className={classes.infoSection}>
         <header className={classes.movieHeader}>
           {fullDescription && (
@@ -94,13 +119,17 @@ const MovieBanner = (props) => {
       />
       <div className={classes.movieActions}>
         {fullDescription ? (
-          <Link to={`booking/${movie._id}`} style={{ textDecoration: "none" }}>
-            <Button variant="contained" className={classes.button}>
-              {t("public.home.buyticket")}
-              <ArrowRightAlt className={classes.buttonIcon} />
-            </Button>
-          </Link>
+          //<Link to={`booking/${movie._id}`} style={{ textDecoration: "none" }}>
+          <Button
+            onClick={checkIsLogin}
+            variant="contained"
+            className={classes.button}
+          >
+            {t("public.home.buyticket")}
+            <ArrowRightAlt className={classes.buttonIcon} />
+          </Button>
         ) : (
+          //</Link>
           <Link to={`movie/${movie._id}`} style={{ textDecoration: "none" }}>
             <Button className={classnames(classes.button, classes.learnMore)}>
               {t("public.home.learnmore")}

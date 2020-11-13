@@ -24,6 +24,9 @@ function BookingPage(props) {
   const { classes } = props;
   const { t } = useTranslation();
   const movie = useSelector((state) => state.movieState.selectedMovie);
+  const showInvitation = useSelector(
+    (state) => state.checkoutState.showInvitation
+  );
   const isAuthenticated = useSelector(
     (state) => state.authState.isAuthenticated
   );
@@ -45,13 +48,7 @@ function BookingPage(props) {
       });
     };
   }, []);
-  if (!isAuthenticated) {
-    if (window.confirm(t("moviedetail.requiredLogin")))
-      return <Redirect to="/login"></Redirect>;
-    else {
-      history.goBack();
-    }
-  }
+
   return (
     <Container maxWidth="xl" className={classes.container}>
       <Grid container spacing={2} style={{ height: "100%" }}>

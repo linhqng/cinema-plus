@@ -16,6 +16,7 @@ import {
   SET_LIST_CINEMA_FOLLOW_MOVIE_ID,
   SET_LIST_RESERVATIONS,
   SET_PROMOTION,
+  CURRENT_RESERVATION,
 } from "../types/checkout";
 
 import { setAlert } from "./alert";
@@ -132,6 +133,35 @@ export const Find_promotion = (code) => async (dispatch) => {
     dispatch(setAlert("error", "error", 5000));
   }
 };
+export const mailConfirm = (currentReservation) => async (dispatch) => {
+  console.log("hello");
+  try {
+    const data = {
+      to: currentReservation.userId.email,
+      host: currentReservation.userId.name,
+      movie: currentReservation.movieId.title,
+      date: moment(currentReservation.date).format("DD-MM-YYYY"),
+      time: currentReservation.startAt,
+      cinema: currentReservation.cinemaId.name,
+      link: "http://localhost:3000/checkin/" + currentReservation._id,
+    };
+    const url = BASE_URL + "confirm";
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    const result = await response.json();
+    console.log(result);
+    if (response.ok) {
+      dispatch(setAlert("Send email success!", "success", 3000));
+    }
+  } catch (error) {
+    dispatch(setAlert("error", "error", 5000));
+  }
+};
 export const Make_reservation = (reservation, movieId) => async (dispatch) => {
   try {
     const url = BASE_URL + "reservations/create";
@@ -152,6 +182,7 @@ export const Make_reservation = (reservation, movieId) => async (dispatch) => {
         cinemaId: checkoutState.selectedCinema._id,
       };
       dispatch(find_reservations(data));
+      dispatch({ type: CURRENT_RESERVATION, payload: res });
       dispatch(setAlert("Success", "success", 3000));
     }
   } catch (error) {

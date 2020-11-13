@@ -13,6 +13,12 @@
     "question": "Đã có tài khoản?",
     "link": "Đăng nhập"
   },
+  "login":{
+    "sign-in" : "Đăng nhập",
+    "login" : "Đăng nhập",
+    "haveAccount" : "Chưa có tài khoản?",
+    "register": "đăng ký"
+  },
   "contact":{
     "title": "Liên hệ",
     "desc": "Nói cho chúng tôi biết suy nghĩ của bạn!",
@@ -183,6 +189,12 @@
       "confirmCheckin": "Xác nhận checkin.",
       "confirmDelete": "Xác nhận xóa",
       "confirmPay": "Xác nhận thanh toán"
+    },
+    "contacts":{
+      "name":"Tên người gửi",
+      "email":"Email",
+      "phone":"Số điện thoại",
+      "message":"Tin nhắn liên hệ"
     }
   },
   "public": {
@@ -208,6 +220,8 @@
     }},
   "moviedetail": {
     "requiredLogin": "Bạn phải đăng nhập trước khi mua vé ?",
+    "accept": "Chấp nhân",
+    "cancel": "Hủy",
     "buytickets": "Mua vé",
     "director": "Đạo diễn",
     "minute": "phút",

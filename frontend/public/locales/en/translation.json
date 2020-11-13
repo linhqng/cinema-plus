@@ -13,6 +13,12 @@
     "question": "Have an account?",
     "link": "Login"
   },
+  "login":{
+    "sign-in" : "Sign in",
+    "login" : "Login now",
+    "haveAccount" : "Don't have an account?",
+    "register": "register"
+  },
   "contact":{
     "title": "Contact Us",
     "desc": "Tell us what do you think about our business.",
@@ -184,6 +190,12 @@
       "confirmCheckin": "Confirm checkin.",
       "confirmDelete": "Confirm delete.",
       "confirmPay": "Confirm payment."
+    },
+    "contacts":{
+      "name":"Name",
+      "email":"Email",
+      "phone":"Phone",
+      "message":"Message"
     }
   },
   "public": {
@@ -209,6 +221,8 @@
     }},
   "moviedetail": {
     "requiredLogin": "You must login before buy ticket ?",
+    "accept": "Accept",
+    "cancel": "Cancel",
     "buytickets": "Buy tickets",
     "director": "By",
     "minute": "min",

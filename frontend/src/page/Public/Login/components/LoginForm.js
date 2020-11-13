@@ -8,16 +8,13 @@ import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import CustomField from "../../../../components/CustomField/CustomField";
+import { useTranslation } from "react-i18next";
 import {
   login,
   facebookLogin,
   googleLogin,
 } from "../../../../redux/actions/auth";
 import styles from "./styles";
-const validateForm = Yup.object().shape({
-  username: Yup.string().required("User name is not empty"),
-  password: Yup.string().required("Password is not empty"),
-});
 
 function LoginForm(props) {
   const {
@@ -31,6 +28,7 @@ function LoginForm(props) {
     location,
   } = props;
   const dispatch = useDispatch();
+  const { t, i18n } = useTranslation();
   const target = location.state ? location.state.from.pathname : "/";
   useEffect(() => {
     if (isAuthenticated && redirect) {
@@ -46,7 +44,10 @@ function LoginForm(props) {
         username: "",
         password: "",
       }}
-      validationSchema={validateForm}
+      validationSchema={Yup.object().shape({
+        username: Yup.string().required(t("validate.usernameRq")),
+        password: Yup.string().required(t("validate.passwordRq")),
+      })}
       onSubmit={(values) => {
         dispatch(login(values));
         resetForm({});
@@ -56,7 +57,7 @@ function LoginForm(props) {
       {(propsForm) => (
         <Form className={classes.form}>
           <Typography className={classes.title} variant="h2">
-            Sign in
+            {t("login.sign-in")}
           </Typography>
 
           <div className={classes.socialLogin}>
@@ -95,14 +96,14 @@ function LoginForm(props) {
           <div className={classes.fields}>
             <CustomField
               className={classes.textField}
-              label="User name"
+              label={t("register.username")}
               name="username"
               type="text"
               variant="outlined"
             />
             <CustomField
               className={classes.textField}
-              label="Password"
+              label={t("register.password")}
               name="password"
               type="password"
               variant="outlined"
@@ -117,12 +118,12 @@ function LoginForm(props) {
             type="submit"
             disabled={!propsForm.isValid || !propsForm.dirty}
           >
-            Login now
+            {t("login.login")}
           </Button>
           <Typography className={classes.register} variant="body1">
-            Don't have an account?
+            {t("login.haveAccount")}
             <Link className={classes.registerUrl} to="/register">
-              register
+              {t("login.register")}
             </Link>
           </Typography>
         </Form>
