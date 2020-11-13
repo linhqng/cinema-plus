@@ -160,6 +160,12 @@
       "confirmCheckin": "Confirm checkin.",
       "confirmDelete": "Confirm delete.",
       "confirmPay": "Confirm payment."
+    },
+    "contacts":{
+      "name":"Name",
+      "email":"Email",
+      "phone":"Phone",
+      "message":"Message"
     }
   },
   "public": {

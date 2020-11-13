@@ -39,6 +39,7 @@ const Promotion = lazy(() =>
   import("./page/Admin/PromotionList/PromotionList")
 );
 const Reservation = lazy(() => import("./page/Admin/Reservation/Reservation"));
+const ContactList = lazy(() => import("./page/Admin/ContactList/ContactList"));
 const Routes = () => {
   return (
     <Suspense fallback={<Loading />}>
@@ -143,6 +144,12 @@ const Routes = () => {
             path="/admin/reservations"
             layout={AdminLayout}
             component={Reservation}
+          ></ProtectedRoute>
+          <ProtectedRoute
+            exact
+            path="/admin/contacts"
+            layout={AdminLayout}
+            component={ContactList}
           ></ProtectedRoute>
         </Switch>
       </Router>

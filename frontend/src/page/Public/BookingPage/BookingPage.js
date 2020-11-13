@@ -45,13 +45,7 @@ function BookingPage(props) {
       });
     };
   }, []);
-  if (!isAuthenticated) {
-    if (window.confirm(t("moviedetail.requiredLogin")))
-      return <Redirect to="/login"></Redirect>;
-    else {
-      history.goBack();
-    }
-  }
+
   return (
     <Container maxWidth="xl" className={classes.container}>
       <Grid container spacing={2} style={{ height: "100%" }}>

@@ -160,6 +160,12 @@
       "confirmCheckin": "Xác nhận checkin.",
       "confirmDelete": "Xác nhận xóa",
       "confirmPay": "Xác nhận thanh toán"
+    },
+    "contacts":{
+      "name":"Tên người gửi",
+      "email":"Email",
+      "phone":"Số điện thoại",
+      "message":"Tin nhắn liên hệ"
     }
   },
   "public": {
