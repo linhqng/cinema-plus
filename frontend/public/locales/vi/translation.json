@@ -122,7 +122,8 @@
       "totalUsers": "Số lượng người dùng",
       "totalMovies": "Số lượng phim",
       "totalCinemas": "Số lượng rạp chiếu",
-      "sinceLastMonth": "Kể từ tháng trước"
+      "sinceLastMonth": "Kể từ tháng trước",
+      "totalReservation":"Tổng lượng vé đặt"
     },
     "account": {
       "cardName": "Thông tin tài khoản",

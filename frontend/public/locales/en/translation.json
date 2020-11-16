@@ -122,7 +122,8 @@
       "totalUsers": "Total Users",
       "totalMovies": "Total Movies",
       "totalCinemas": "Total Cinemas",
-      "sinceLastMonth": "Since last month"
+      "sinceLastMonth": "Since last month",
+      "totalReservation":"Total reservation"
     },
     "account": {
       "cardName": "Account information",

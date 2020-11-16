@@ -69,6 +69,9 @@ function ShowtimeTable(props) {
         options={{
           actionsColumnIndex: -1,
           search: true,
+          paging: true,
+          pageSize: 10, // make initial page size
+          emptyRowsWhenPaging: true,
         }}
       />
     </div>
