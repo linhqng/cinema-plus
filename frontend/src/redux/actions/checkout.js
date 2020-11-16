@@ -134,7 +134,6 @@ export const Find_promotion = (code) => async (dispatch) => {
   }
 };
 export const mailConfirm = (currentReservation) => async (dispatch) => {
-  console.log("hello");
   try {
     const data = {
       to: currentReservation.userId.email,

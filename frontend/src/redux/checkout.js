@@ -26,6 +26,7 @@ const initialState = {
   reservations: [],
   promotion: [],
   showInvitation: false,
+  currentReservation: {},
 };
 
 const setSelectedSeats = (state, seats) => {
