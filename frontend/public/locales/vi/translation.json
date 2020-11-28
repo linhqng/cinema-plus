@@ -13,6 +13,42 @@
     "question": "Đã có tài khoản?",
     "link": "Đăng nhập"
   },
+  "login":{
+    "sign-in" : "Đăng nhập",
+    "login" : "Đăng nhập",
+    "haveAccount" : "Chưa có tài khoản?",
+    "register": "đăng ký"
+  },
+  "contact":{
+    "title": "Liên hệ",
+    "desc": "Nói cho chúng tôi biết suy nghĩ của bạn!",
+    "btn": "Gởi tin nhắn",
+    "message": "Tin nhắn",
+    "hint": "Bạn muốn nói với chúng tôi điều gì?"
+  },
+  "cinemas":{
+    "title": "Rạp",
+    "perMovie": "mỗi phim",
+    "seatsAvailable": "chỗ"
+  },
+  "promotions":{
+    "title": "Khuyến mãi"
+  },
+  "dashboard":{
+    "account": "Tài khoản",
+    "reservations": "Vé đã đặt",
+    "movie": "Phim",
+    "cinema": "Rạp",
+    "date": "Ngày",
+    "startAt": "Giờ chiếu",
+    "method": "Phương thức",
+    "total": "Tổng tiền",
+    "rowsPerPage": "Hàng"
+  },
+    "category":{
+    "search": "Tìm theo tên",
+    "notExist": "Không có phim nào!"
+  },
   "validate": {
     "nameRq": "Họ tên là bắt buộc",
     "nameMin": "Họ tên ít nhất phải 5 ký tự",
@@ -28,7 +64,8 @@
     "passwordMin": "Mật khẩu có ít nhất 8 ký tự",
     "passwordMax": "Mật khẩu có ít nhất 32 ký tự",
     "avatarRq": "Ảnh đại diện là bắt buộc",
-    "policyRq": "Chấp nhận Điều khoản và Chính sách"
+    "policyRq": "Chấp nhận Điều khoản và Chính sách",
+    "messageRq": "Tin nhắn là bắc buộc"
   },
   "btn": {
     "upload": "Tải lên"
@@ -114,7 +151,8 @@
       "totalUsers": "Số lượng người dùng",
       "totalMovies": "Số lượng phim",
       "totalCinemas": "Số lượng rạp chiếu",
-      "sinceLastMonth": "Kể từ tháng trước"
+      "sinceLastMonth": "Kể từ tháng trước",
+      "totalReservation":"Tổng lượng vé đặt"
     },
     "account": {
       "cardName": "Thông tin tài khoản",
@@ -152,6 +190,12 @@
       "confirmCheckin": "Xác nhận checkin.",
       "confirmDelete": "Xác nhận xóa",
       "confirmPay": "Xác nhận thanh toán"
+    },
+    "contacts":{
+      "name":"Tên người gửi",
+      "email":"Email",
+      "phone":"Số điện thoại",
+      "message":"Tin nhắn liên hệ"
     }
   },
   "public": {
@@ -160,6 +204,7 @@
       "showing": "Đang Công Chiếu",
       "coming": "Sắp Ra Mắt",
       "cinemas": "Rạp",
+      "promotions": "Khuyến mãi",
       "contact": "Liên hệ",
       "dashboard": "Trang Thông Tin",
       "logout": "Đăng Xuất",
@@ -176,6 +221,8 @@
     }},
   "moviedetail": {
     "requiredLogin": "Bạn phải đăng nhập trước khi mua vé ?",
+    "accept": "Chấp nhân",
+    "cancel": "Hủy",
     "buytickets": "Mua vé",
     "director": "Đạo diễn",
     "minute": "phút",

@@ -11,6 +11,7 @@ import {
   SET_LIST_RESERVATIONS,
   SET_DISCOUNT,
   SET_PROMOTION,
+  CURRENT_RESERVATION,
 } from "./types/checkout";
 
 const initialState = {
@@ -24,6 +25,8 @@ const initialState = {
   cinemas: [],
   reservations: [],
   promotion: [],
+  showInvitation: false,
+  currentReservation: {},
 };
 
 const setSelectedSeats = (state, seats) => {
@@ -91,6 +94,8 @@ export default function (state = initialState, action) {
       return toggleLoginPopup(state);
     case RESET_CHECKOUT:
       return resetCheckout();
+    case SHOW_INVITATION_FORM:
+      return showInvitationForm(state);
     case FIND_SHOWTIME:
       return {
         ...state,
@@ -118,6 +123,12 @@ export default function (state = initialState, action) {
       return {
         ...state,
         promotion: payload,
+      };
+    }
+    case CURRENT_RESERVATION: {
+      return {
+        ...state,
+        currentReservation: payload,
       };
     }
     default:

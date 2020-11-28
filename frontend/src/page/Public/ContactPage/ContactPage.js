@@ -1,11 +1,5 @@
 import React, { useEffect } from "react";
-import {
-  makeStyles,
-  Grid,
-  Typography,
-  Button,
-  IconButton,
-} from "@material-ui/core";
+import { makeStyles, Grid, Typography, Button } from "@material-ui/core";
 import styles from "./styles";
 import { withStyles } from "@material-ui/core";
 import { Form, Formik } from "formik";
@@ -13,8 +7,11 @@ import * as Yup from "yup";
 import { useTranslation } from "react-i18next";
 import CustomField from "../../../components/CustomField/CustomField";
 import CustomUpLoad from "../../../components/CustomUpload/CustomUpload";
-const ContactPage = ({ classes }) => {
+import { useDispatch } from "react-redux";
+import { createContact } from "../../../redux/actions/contact";
+const ContactPage = ({ classes, setSubmitting, history }) => {
   const { t, i18n } = useTranslation();
+  const dispatch = useDispatch();
   return (
     <Grid
       container
@@ -27,51 +24,38 @@ const ContactPage = ({ classes }) => {
       <Formik
         initialValues={{
           name: "",
-          username: "",
           email: "",
           phone: "",
-          password: "",
           image: null,
-          policy: false,
+          message: "",
         }}
         validationSchema={Yup.object().shape({
           // Validate form field
           name: Yup.string()
             .required(t("validate.nameRq"))
             .min(5, t("validate.nameMin")),
-          username: Yup.string()
-            .required(t("validate.usernameRq"))
-            .min(5, t("validate.usernameMin"))
-            .max(16, t("validate.usernameMax")),
+          message: Yup.string().required(t("validate.messageRq")),
           email: Yup.string()
             .email(t("validate.emailInvalid"))
             .required(t("validate.emailRq")),
-          phone: Yup.string()
-            .matches(/^(0)+([0-9]{9})\b$/, t("validate.phoneInvalid"))
-            .required(t("validate.phoneRq")),
-          password: Yup.string()
-            .matches(
-              /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
-              t("validate.passwordDesc")
-            )
-            .required(t("validate.passwordRq"))
-            .min(8, t("validate.passwordMin"))
-            .max(32, t("validate.passwordMax")),
-          image: Yup.mixed().required(t("validate.avatarRq")),
-          policy: Yup.boolean().oneOf([true], t("validate.policyRq")),
+          phone: Yup.string().matches(
+            /^(0)+([0-9]{9})\b$/,
+            t("validate.phoneInvalid")
+          ),
         })}
         onSubmit={(values) => {
-          // dispatch(registerUser(values));
-          // setSubmitting(false);
+          dispatch(createContact(values));
+          console.log(history);
+          return history.push("/");
         }}
       >
         {(propsForm) => (
           <Form className={classes.form}>
             <Typography className={classes.title} variant="h2">
-              {t("register.title")}
+              {t("contact.title")}
             </Typography>
             <Typography className={classes.subtitle} variant="body1">
-              {t("register.desc")}
+              {t("contact.desc")}
             </Typography>
 
             <div className={classes.fields}>
@@ -95,18 +79,18 @@ const ContactPage = ({ classes }) => {
               />
               <CustomField
                 className={classes.textField}
-                label="Message"
-                name="password"
+                label={t("contact.message")}
+                name="message"
                 variant="outlined"
                 multiline
                 rows={4}
                 rowsMax={7}
-                placeholder="Minimum 3 rows"
+                placeholder={t("contact.hint")}
               />
               <CustomUpLoad
                 name="image"
                 className={classes.upload}
-                label="Upload Avatar"
+                label="Upload Photo"
               />
             </div>
 
@@ -118,7 +102,7 @@ const ContactPage = ({ classes }) => {
               disabled={!propsForm.isValid || !propsForm.dirty}
               type="submit"
             >
-              {t("register.btn")}
+              {t("contact.btn")}
             </Button>
           </Form>
         )}

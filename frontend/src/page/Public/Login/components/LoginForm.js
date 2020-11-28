@@ -8,25 +8,13 @@ import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import CustomField from "../../../../components/CustomField/CustomField";
+import { useTranslation } from "react-i18next";
 import {
   login,
   facebookLogin,
   googleLogin,
 } from "../../../../redux/actions/auth";
 import styles from "./styles";
-const validateForm = Yup.object().shape({
-  username: Yup.string().required("User name is not empty"),
-  // .min(5, "Username must have min 5 characters")
-  // .max(16, "Username have max 16 characters"),
-  password: Yup.string()
-    // .matches(
-    //   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
-    //   "Password must have minimum 8 characters, at least one uppercase letter, one lowercase letter and one number"
-    // )
-    .required("Password is not empty"),
-  // .min(8, "Password have min 8 characters")
-  // .max(32, "Password have max 32 characters"),
-});
 
 function LoginForm(props) {
   const {
@@ -37,13 +25,16 @@ function LoginForm(props) {
     history,
     resetForm,
     setSubmitting,
+    location,
   } = props;
   const dispatch = useDispatch();
+  const { t, i18n } = useTranslation();
+  const target = location.state ? location.state.from.pathname : "/";
   useEffect(() => {
     if (isAuthenticated && redirect) {
       if (user && user.role === "superadmin")
         return history.push("/admin/dashboard");
-      return history.push("/");
+      return history.push(target);
     }
   }, [isAuthenticated, user, redirect]);
 
@@ -53,7 +44,10 @@ function LoginForm(props) {
         username: "",
         password: "",
       }}
-      validationSchema={validateForm}
+      validationSchema={Yup.object().shape({
+        username: Yup.string().required(t("validate.usernameRq")),
+        password: Yup.string().required(t("validate.passwordRq")),
+      })}
       onSubmit={(values) => {
         dispatch(login(values));
         resetForm({});
@@ -63,7 +57,7 @@ function LoginForm(props) {
       {(propsForm) => (
         <Form className={classes.form}>
           <Typography className={classes.title} variant="h2">
-            Sign in
+            {t("login.sign-in")}
           </Typography>
 
           <div className={classes.socialLogin}>
@@ -102,14 +96,14 @@ function LoginForm(props) {
           <div className={classes.fields}>
             <CustomField
               className={classes.textField}
-              label="User name"
+              label={t("register.username")}
               name="username"
               type="text"
               variant="outlined"
             />
             <CustomField
               className={classes.textField}
-              label="Password"
+              label={t("register.password")}
               name="password"
               type="password"
               variant="outlined"
@@ -124,12 +118,12 @@ function LoginForm(props) {
             type="submit"
             disabled={!propsForm.isValid || !propsForm.dirty}
           >
-            Login now
+            {t("login.login")}
           </Button>
           <Typography className={classes.register} variant="body1">
-            Don't have an account?
+            {t("login.haveAccount")}
             <Link className={classes.registerUrl} to="/register">
-              register
+              {t("login.register")}
             </Link>
           </Typography>
         </Form>

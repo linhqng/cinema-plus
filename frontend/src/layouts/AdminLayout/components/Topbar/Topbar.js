@@ -5,7 +5,6 @@ import InputIcon from "@material-ui/icons/Input";
 import MenuIcon from "@material-ui/icons/Menu";
 import React, { useEffect } from "react";
 import styles from "./styles";
-import { logout } from "../../../../redux/actions/auth";
 import { connect } from "react-redux";
 import NotificationsIcon from "@material-ui/icons/NotificationsOutlined";
 

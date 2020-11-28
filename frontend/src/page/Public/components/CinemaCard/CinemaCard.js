@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core";
 import { Typography } from "@material-ui/core";
 import Paper from "../../../../components/Paper/Paper";
 import { EventSeat, AttachMoney } from "@material-ui/icons";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -57,6 +58,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function CinemaCard(props) {
+  const { t, i18n } = useTranslation();
   const classes = useStyles(props);
   const { className, cinema } = props;
   const cinemaImage =
@@ -81,13 +83,13 @@ function CinemaCard(props) {
       <div className={classes.stats}>
         <AttachMoney className={classes.eventIcon} />
         <Typography className={classes.eventText} variant="body2">
-          {cinema.ticketPrice} <span>&euro;</span> per movie
+          {cinema.ticketPrice} <span>&euro;</span> {t("cinemas.perMovie")}
         </Typography>
       </div>
       <div className={classes.stats}>
         <EventSeat className={classes.eventIcon} />
         <Typography className={classes.eventText} variant="body2">
-          {cinema.seatsAvailable} seats Available
+          {cinema.seatsAvailable} {t("cinemas.seatsAvailable")}
         </Typography>
       </div>
     </Paper>

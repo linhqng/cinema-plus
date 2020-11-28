@@ -30,7 +30,7 @@ export default (state = initialState, action) => {
     case AUTH_ERROR:
     case LOGOUT:
       localStorage.removeItem("jwtToken");
-      return initialState;
+      return { ...state, loading: true, isAuthenticated: false, user: null };
     default:
       return state;
   }

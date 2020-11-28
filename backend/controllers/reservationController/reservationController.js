@@ -78,15 +78,20 @@ exports.Create_reservation = async (req, res) => {
   const data = req.body;
   try {
     const reservation = new Reservation(data);
-    const result = reservation.save();
-    return res.send(result);
+    const result = await reservation.save();
+    const finalResult = await Reservation.findById(result._id)
+      .populate("userId")
+      .populate("cinemaId")
+      .populate("movieId")
+      .exec();
+    return res.send(finalResult);
   } catch (error) {
     return res.status(500).send("error 500");
   }
 };
 
 exports.Get_my_reservations = async (req, res) => {
-  const id = req.user._id;
+  const id = req.body.userId;
   try {
     const reservations = await Reservation.find({ userId: id })
       .sort({ date: -1 })

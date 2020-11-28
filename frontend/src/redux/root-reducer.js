@@ -10,6 +10,8 @@ import profile from "./profile";
 import promotion from "./promotion";
 import checkout from "./checkout";
 import reservation from "./reservation";
+import contact from "./contact";
+import contactAdmin from "./contactAdmin";
 export default combineReducers({
   alertState: alert,
   movieState: movies,
@@ -21,4 +23,6 @@ export default combineReducers({
   promotionState: promotion,
   checkoutState: checkout,
   reservationState: reservation,
+  contactState: contact,
+  contactAdminState: contactAdmin,
 });

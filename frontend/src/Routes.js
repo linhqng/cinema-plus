@@ -6,6 +6,7 @@ import PublicLayout from "./layouts/PublicLayout/PublicLayout";
 import AdminLayout from "./layouts/AdminLayout/AdminLayout";
 
 import ProtectedRoute from "./routers/ProtectedRoute";
+import ProtectedUserRoute from "./routers/ProtectedUserRoute";
 import WithLayoutRoute from "./routers/WithLayoutRoute";
 import AuthRoute from "./routers/AuthRoute";
 
@@ -17,6 +18,7 @@ const MovieCategoryPage = lazy(() =>
 );
 
 const CinemasPage = lazy(() => import("./page/Public/CinemasPage/CinemasPage"));
+const MyDashboard = lazy(() => import("./page/Public/MyDashboard/MyDashboard"));
 const Contact = lazy(() => import("./page/Public/ContactPage/ContactPage"));
 const PromotionsPage = lazy(() =>
   import("./page/Public/PromotionsPage/PromotionsPage")
@@ -38,6 +40,7 @@ const Promotion = lazy(() =>
   import("./page/Admin/PromotionList/PromotionList")
 );
 const Reservation = lazy(() => import("./page/Admin/Reservation/Reservation"));
+const ContactList = lazy(() => import("./page/Admin/ContactList/ContactList"));
 const Routes = () => {
   return (
     <Suspense fallback={<Loading />}>
@@ -45,7 +48,6 @@ const Routes = () => {
         <Switch>
           <AuthRoute exact path="/login" component={Login} />
           <AuthRoute exact path="/register" component={Register} />
-
           <ProtectedRoute
             exact
             path="/admin/dashboard"
@@ -57,6 +59,12 @@ const Routes = () => {
             path="/cinemas"
             layout={PublicLayout}
             component={CinemasPage}
+          />{" "}
+          <ProtectedUserRoute
+            exact
+            path="/mydashboard"
+            layout={PublicLayout}
+            component={MyDashboard}
           />
           <WithLayoutRoute
             exact
@@ -95,7 +103,7 @@ const Routes = () => {
             layoutProps={{ withFooter: false }}
             component={MoviePage}
           />
-          <WithLayoutRoute
+          <ProtectedUserRoute
             exact
             path="/movie/booking/:id"
             layout={PublicLayout}
@@ -137,6 +145,12 @@ const Routes = () => {
             path="/admin/reservations"
             layout={AdminLayout}
             component={Reservation}
+          ></ProtectedRoute>
+          <ProtectedRoute
+            exact
+            path="/admin/contacts"
+            layout={AdminLayout}
+            component={ContactList}
           ></ProtectedRoute>
         </Switch>
       </Router>

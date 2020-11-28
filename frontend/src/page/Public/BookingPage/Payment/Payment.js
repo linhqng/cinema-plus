@@ -14,6 +14,8 @@ import { useParams } from "react-router-dom";
 import {
   Find_promotion,
   Make_reservation,
+  showInvitationForm,
+  mailConfirm,
 } from "../../../../redux/actions/checkout";
 
 const useStyles = makeStyles((theme) => ({
@@ -52,7 +54,9 @@ function Payment(props) {
   const params = useParams();
   const selectedTime = useSelector((state) => state.checkoutState.selectedTime);
   const selectedDate = useSelector((state) => state.checkoutState.selectedDate);
-
+  const currentReservation = useSelector(
+    (state) => state.checkoutState.currentReservation
+  );
   const userId = useSelector((state) => state.authState.user._id);
   const promotion = useSelector((state) => state.checkoutState.promotion);
   const [value, setValue] = React.useState("counter");
@@ -87,6 +91,8 @@ function Payment(props) {
       date: selectedDate,
     };
     dispatch(Make_reservation(reservation, params.id));
+    dispatch(mailConfirm(currentReservation));
+    dispatch(showInvitationForm());
     handleClose();
   };
 

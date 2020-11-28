@@ -13,6 +13,43 @@
     "question": "Have an account?",
     "link": "Login"
   },
+  "login":{
+    "sign-in" : "Sign in",
+    "login" : "Login now",
+    "haveAccount" : "Don't have an account?",
+    "register": "register"
+  },
+  "contact":{
+    "title": "Contact Us",
+    "desc": "Tell us what do you think about our business.",
+    "btn": "Send Message",
+    "message": "Message",
+    "hint": "What do you wanna tell us!"
+  },
+  "cinemas":{
+    "title": "Our Cinemas",
+    "perMovie": "per movie",
+    "seatsAvailable": "seats Available"
+  },
+  "promotions":{
+    "title": "Our Promotions"
+  },
+  "dashboard":{
+    "account": "My Account",
+    "reservations": "My Reservations",
+    "movie": "Movie",
+    "cinema": "Cinema",
+    "date": "Date",
+    "startAt": "Start At",
+    "method": "Method",
+    "total": "Total",
+    "rowsPerPage": "Rows per page"
+  },
+  "category":{
+    "search": "Search name",
+    "notExist": "Category does not exist."
+  },
+
   "validate": {
     "nameRq": "Name is required",
     "nameMin": "Name must have min 5 characters",
@@ -28,7 +65,8 @@
     "passwordMin": "Password have min 8 characters",
     "passwordMax": "Password have max 32 characters",
     "avatarRq": "Avatar is required",
-    "policyRq": "Must Accept Terms and Conditions"
+    "policyRq": "Must Accept Terms and Conditions",
+    "messageRq": "Message is required"
   },
   "btn": {
     "upload": "Upload"
@@ -114,7 +152,8 @@
       "totalUsers": "Total Users",
       "totalMovies": "Total Movies",
       "totalCinemas": "Total Cinemas",
-      "sinceLastMonth": "Since last month"
+      "sinceLastMonth": "Since last month",
+      "totalReservation":"Total reservation"
     },
     "account": {
       "cardName": "Account information",
@@ -152,6 +191,12 @@
       "confirmCheckin": "Confirm checkin.",
       "confirmDelete": "Confirm delete.",
       "confirmPay": "Confirm payment."
+    },
+    "contacts":{
+      "name":"Name",
+      "email":"Email",
+      "phone":"Phone",
+      "message":"Message"
     }
   },
   "public": {
@@ -160,6 +205,7 @@
       "showing": "Now Showing",
       "coming": "Coming Soon",
       "cinemas": "Cinemas",
+      "promotions": "Promotions",
       "contact": "Contact",
       "dashboard": "Dashboard",
       "logout": "Logout",
@@ -176,6 +222,8 @@
     }},
   "moviedetail": {
     "requiredLogin": "You must login before buy ticket ?",
+    "accept": "Accept",
+    "cancel": "Cancel",
     "buytickets": "Buy tickets",
     "director": "By",
     "minute": "min",

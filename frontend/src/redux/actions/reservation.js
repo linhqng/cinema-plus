@@ -3,8 +3,31 @@ import {
   SET_CHECKIN_RESERVATION,
   SET_PENDING_RESERVATION,
   SET_UNCHECKIN_RESERVATION,
+  GET_MY_RESERVATIONS,
 } from "../types/reservation";
 import { setAlert } from "./alert";
+
+export const getMyReservations = (userId) => async (dispatch) => {
+  try {
+    const token = localStorage.getItem("jwtToken");
+    const url = BASE_URL + "reservations/me";
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ userId: userId }),
+    });
+    const myReservations = await response.json();
+    if (response.ok) {
+      dispatch({ type: GET_MY_RESERVATIONS, payload: myReservations });
+      // dispatch(setAlert("error.message", "error", 5000));
+    }
+  } catch (error) {
+    dispatch(setAlert(error.message, "error", 5000));
+  }
+};
 
 export const Get_checkin_reservation = () => async (dispatch) => {
   try {

@@ -6,7 +6,7 @@ import { ArrowBack as ArrowBackIcon } from "@material-ui/icons";
 import LoginForm from "./components/LoginForm";
 import styles from "./styles";
 
-const Login = ({ history, classes }) => {
+const Login = ({ history, classes, location }) => {
   return (
     <div className={classes.root}>
       <Grid className={classes.grid} container>
@@ -25,7 +25,7 @@ const Login = ({ history, classes }) => {
             </IconButton>
           </div>
           <div className={classes.contentBody}>
-            <LoginForm history={history} redirect />
+            <LoginForm history={history} location={location} redirect />
           </div>
         </Grid>
       </Grid>
